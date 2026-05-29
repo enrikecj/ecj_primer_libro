@@ -1,9 +1,5 @@
-title: |
-  Creating Electronic Books
-  with Code and
-  Artificial Intelligence
-  Assistants
-author: Álvaro Lozano Murciego and André Sales Mendes
+title: Physics IV Notes
+author: Enrique Conejero Jarque, Luis Plaja Rustein, Javier Rodríguez Vázquez de Aldana
 copyright: "2026"
 logo: "_static/logo.png"
 language: en
@@ -50,10 +46,8 @@ latex_docclass:
 latex:
   latex_engine: xelatex
   options: "english"
-  subtitle: "Course for the Faculties of Sciences and Chemical Sciences"       # Optional
-  header_title: |
-    Creating electronic books
-    with code and AI
+  subtitle: "Oscillations, waves, optics, and quantum physics"       # Optional
+  header_title: Physics IV Notes
   institution: "Universidad de Salamanca"  # Optional
   edition: "1st Edition"                # Optional
   cover_logo: "_static/usal_logo.png"  # PDF cover logo; the web logo is configured above in `logo`

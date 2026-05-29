@@ -1,23 +1,42 @@
-# Introducción
+# Apuntes de Física IV
 
-Bienvenido a **Elaboración de libros electrónicos mediante código y asistentes de Inteligencia Artificial**.
+¡Bienvenido al curso de **Física IV**! 
 
-## ¿Qué es esto?
-Es el material del curso y una plantilla diseñada para que el profesorado de las **Facultades de Ciencias y de Ciencias Químicas de la USAL** pueda crear libros docentes interactivos de forma sencilla. La idea principal de esta plantilla es que sea lo suficientemente extensa para cubrir muchos casos de uso y que cada alumno la adapte a su propio curso, pero que a la vez esté lo suficientemente equipada para que se pueda usar de forma sencilla con la ayuda de asistentes de IA (como GitHub Copilot, Gemini, Claude, Codex, etc.) y con un editor de código como VS Code.
+Este material está diseñado como apoyo fundamental para la asignatura, centrada en el estudio de las oscilaciones, las ondas, una introducción a la óptica y los conceptos fundamentales que dieron lugar al nacimiento de la física cuántica. 
 
-## Contenido
-En este libro encontrarás:
-- [Tutoriales](01_tutorial/01_que_es_un_teachbook.md) para aprender a usar la plantilla
-- [Ejemplos por Grado](02_grados/grado_fisica/intro.md) para ver casos reales
-- Información sobre [cómo citar](92_como_citar.md) y [licencias](91_licencias.md)
+A través de este libro interactivo, exploraremos desde los sistemas oscilatorios más simples hasta el comportamiento ondulatorio de la materia.
 
-## Versión PDF
+## Temario de la Asignatura
 
-También puedes descargar la versión imprimible del libro:
+El curso está estructurado en los siguientes bloques temáticos:
 
-- [Descargar PDF en español](../_static/teachbook_es.pdf)
-- [Download PDF in English](../_static/teachbook_en.pdf)
+1. **Equilibrio, amortiguamiento y oscilaciones**
+2. **Oscilación armónica**
+3. **Oscilación armónica amortiguada y forzada**
+4. **Osciladores acoplados**
+5. **Movimiento ondulatorio: ondas estacionarias**
+6. **Movimiento ondulatorio: ondas viajeras**
+7. **Movimiento ondulatorio: ondas en varias dimensiones**
+8. **Descripción clásica de la luz**
+9. **El nacimiento de la física cuántica**
 
-```{note}
-Este proyecto está diseñado para ser usado con **VS Code** y asistentes de **IA**.
-```
+## Bibliografía y Recursos
+
+Para profundizar en los contenidos del curso, te recomendamos la siguiente bibliografía principal:
+
+- P.A. Tipler and G. Mosca, *"Physics for scientists and engineers"*, 6th ed. (W.H. Freeman, 2007). Part II Oscillations and waves.
+- R.D. Knight, *"Physics for scientists and engineers: A strategic approach with modern physics"*, 5th ed. (Pearson, 2022). Part IV Oscillations and waves.
+- R. Fitzpatrick, *"Oscillations and waves: An introduction"*, 2nd ed. (CRC Press, 2018).
+- H. Georgi, *"The physics of waves"* (Prentice Hall, 1993).
+- G.C. King, *"Vibrations and waves"*, 6th ed. (Wiley, 2009).
+- H.J. Pain, *"The physics of vibrations and waves"*, 6th ed. (Wiley, 2005).
+- A.P. French, *"Vibrations and waves"*, (CRC Press, 1971).
+- F.S. Crawford, *"Waves (Berkeley physics course vol. 3)"*, (McGraw-Hill, 1968).
+
+**Recursos interactivos adicionales:**
+- Animaciones generales de física: [surendranath.org](https://www.surendranath.org/)
+- Animaciones de acústica y vibraciones: [D. Russell (PSU)](https://www.acs.psu.edu/drussell/demos.html)
+- Applets de matemáticas y física: [falstad.com](https://www.falstad.com/)
+- MIT Mathlets: [mathlets.org](https://mathlets.org/mathlets/)
+- Animaciones de física y astronomía (PSU y mrg3): [phys23p.sl.psu.edu](https://phys23p.sl.psu.edu/phys_anim/) / [YouTube](https://www.youtube.com/mrg3)
+- Simulaciones interactivas PhET: [phet.colorado.edu](https://phet.colorado.edu/)

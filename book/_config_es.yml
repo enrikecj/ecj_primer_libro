@@ -1,9 +1,5 @@
-title: |
-  Elaboración de libros
-  electrónicos mediante
-  código y asistentes de
-  Inteligencia Artificial
-author: Álvaro Lozano Murciego y André Sales Mendes
+title: Apuntes de Física IV
+author: Enrique Conejero Jarque, Luis Plaja Rustein, Javier Rodríguez Vázquez de Aldana
 copyright: "2026"
 logo: "_static/logo.png"
 language: es
@@ -50,10 +46,8 @@ latex_docclass:
 latex:
   latex_engine: xelatex
   options: "spanish"
-  subtitle: "Curso para las Facultades de Ciencias y de Ciencias Químicas"    # Opcional: subtítulo del libro
-  header_title: |
-    Elaboración de libros electrónicos
-    con código e IA
+  subtitle: "Oscilaciones, ondas, óptica y física cuántica"    # Opcional: subtítulo del libro
+  header_title: Apuntes de Física IV
   institution: "Universidad de Salamanca"  # Opcional
   edition: "1ª Edición"               # Opcional
   cover_logo: "_static/usal_logo.png"  # Logo de la portada PDF; el logo web se configura arriba en `logo`

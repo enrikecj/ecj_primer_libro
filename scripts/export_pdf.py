@@ -627,12 +627,15 @@ def generate_metadata_tex(lang, latex_build_dir):
     # Write bookmetadata.tex
     tex_path = os.path.join(latex_build_dir, "bookmetadata.tex")
     with open(tex_path, "w", encoding="utf-8") as f:
-        f.write("% Auto-generated metadata - do not edit manually\n")
         for cmd, value in metadata.items():
             if value:  # Only write non-empty values
                 # Escape LaTeX special characters
                 safe_value = escape_latex_metadata(value)
-                f.write(f"\\renewcommand{{\\{cmd}}}{{{safe_value}}}\n")
+                f.write(f"\\{cmd}{{{safe_value}}}\n")
+        # After writing other metadata commands, add author if present
+        if config.get('author'):
+            author_escaped = escape_latex_metadata(config['author'])
+            f.write(f"\\author{{{author_escaped}}}\n")
 
     print(f"   📝 Metadata TeX generado: {tex_path}")
 
@@ -886,7 +889,7 @@ def build_pdf_for_lang(lang, engine_name):
     else:
         config_file = f"_config_{lang}.yml"
         toc_file = f"_toc_{lang}.yml"
-        pdf_filename = f"teachbook_{lang}.pdf"
+        pdf_filename = f"fisica_iv_{lang}.pdf"
         temp_mode = True
 
     if temp_mode:
