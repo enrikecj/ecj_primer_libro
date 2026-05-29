@@ -631,7 +631,7 @@ def generate_metadata_tex(lang, latex_build_dir):
             if value:  # Only write non-empty values
                 # Escape LaTeX special characters
                 safe_value = escape_latex_metadata(value)
-                f.write(f"\\{cmd}{{{safe_value}}}\n")
+                f.write(f"\\renewcommand{{\\{cmd}}}{{{safe_value}}}\n")
         # After writing other metadata commands, add author if present
         if config.get('author'):
             author_escaped = escape_latex_metadata(config['author'])
