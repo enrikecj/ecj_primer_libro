@@ -26,8 +26,8 @@ Para profundizar en los contenidos del curso, te recomendamos la siguiente bibli
 
 - P.A. Tipler and G. Mosca, *"Physics for scientists and engineers"*, 6th ed. (W.H. Freeman, 2007). Part II Oscillations and waves.
 - R.D. Knight, *"Physics for scientists and engineers: A strategic approach with modern physics"*, 5th ed. (Pearson, 2022). Part IV Oscillations and waves.
-- R. Fitzpatrick, *"Oscillations and waves: An introduction"*, 2nd ed. (CRC Press, 2018).
-- H. Georgi, *"The physics of waves"* (Prentice Hall, 1993).
+- R. Fitzpatrick, *"Oscillaciones y ondas: una introducción"*, 2ª ed. (CRC Press, 2018). [En línea](https://farside.ph.utexas.edu/teaching/315/Waves/Waveshtml.html)
+- H. Georgi, *"La física de las ondas"* (Prentice Hall, 1993). [En línea](https://phys.libretexts.org/Bookshelves/Waves_and_Acoustics/The_Physics_of_Waves_(Goergi))
 - G.C. King, *"Vibrations and waves"*, 6th ed. (Wiley, 2009).
 - H.J. Pain, *"The physics of vibrations and waves"*, 6th ed. (Wiley, 2005).
 - A.P. French, *"Vibrations and waves"*, (CRC Press, 1971).

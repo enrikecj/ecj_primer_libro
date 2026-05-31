@@ -44,17 +44,25 @@ def toc_entries(toc: dict[str, Any]) -> list[tuple[str, str]]:
         for index, section in enumerate(item.get("sections", []) or []):
             walk(section, f"{position}/s{index}")
 
-    for part_index, part in enumerate(toc.get("parts", []) or []):
-        for chapter_index, chapter in enumerate(part.get("chapters", []) or []):
-            walk(chapter, f"p{part_index}/c{chapter_index}")
+    if "parts" in toc:
+        for part_index, part in enumerate(toc.get("parts", []) or []):
+            for chapter_index, chapter in enumerate(part.get("chapters", []) or []):
+                walk(chapter, f"p{part_index}/c{chapter_index}")
+    elif "chapters" in toc:
+        for chapter_index, chapter in enumerate(toc.get("chapters", []) or []):
+            walk(chapter, f"c{chapter_index}")
     return entries
 
 
-def toc_shape(toc: dict[str, Any]) -> list[list[int]]:
-    return [
-        [len(chapter.get("sections", []) or []) for chapter in part.get("chapters", []) or []]
-        for part in toc.get("parts", []) or []
-    ]
+def toc_shape(toc: dict[str, Any]) -> list[list[int]] | list[int]:
+    if "parts" in toc:
+        return [
+            [len(chapter.get("sections", []) or []) for chapter in part.get("chapters", []) or []]
+            for part in toc.get("parts", []) or []
+        ]
+    elif "chapters" in toc:
+        return [len(chapter.get("sections", []) or []) for chapter in toc.get("chapters", []) or []]
+    return []
 
 
 def content_files(language: str) -> set[str]:

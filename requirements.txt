@@ -5,3 +5,4 @@ sphinx-thebe
 sphinx-kroki
 Pillow
 PyYAML
+pypandoc

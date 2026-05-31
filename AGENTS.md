@@ -18,6 +18,7 @@ Tu trabajo es que TODO funcione con fricción CERO.
 8. **Codificación UTF-8 siempre**. Todos los `.md`, `.ipynb`, `.yml`, `.py`, `.tex`, `.bib`, `.js`, `.css` y skills deben guardarse como UTF-8. Nunca escribas texto con mojibake, caracteres de reemplazo (`U+FFFD`) ni sustituyas acentos por `?`. Antes de cerrar cambios de contenido, ejecuta `python scripts/check_encoding.py` o `python scripts/check_multilang_integrity.py`.
 9. **Celdas de código ASCII-safe**. En notebooks, el Markdown puede llevar acentos, pero las celdas `code` deben usar ASCII en comentarios, `print()`, títulos/ejes/leyendas de Matplotlib y strings visibles. Usa `Ohm`, `pi`, `Delta`, `uF`, `tau`, `x^2` o mathtext (`r"$x^2$"`) en lugar de símbolos Unicode dentro del código.
 10. **Assets web seguros**. PNG/JPG/SVG son formatos estables para HTML/PDF. No cambies referencias a WebP de forma general salvo que exista fallback PNG/JPG y se haya probado el PDF. Tras añadir imágenes o GIFs, ejecuta `python scripts/optimize_static_assets.py --check`; usa `--fix` solo para optimización conservadora de PNG/JPG.
+11. **Modo Arquitecto y Ahorro de Cuota**: El agente actúa principalmente como **planificador y arquitecto**. El **usuario compilará y ejecutará localmente los comandos de compilación y visualización** para ahorrar cuota (salvo que pida lo contrario de forma explícita). El agente debe consultar caches o buscar en el workspace solo cuando sea estrictamente necesario, y editar únicamente el código e indispensable que resuelva la petición.
 
 ## Arquitectura del Proyecto
 
