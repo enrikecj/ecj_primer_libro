@@ -262,7 +262,7 @@ function injectPDFButton(languages, rootPrefix) {
             if (path.includes(`/${l.code}/`)) lang = l.code;
         });
 
-        const pdfFilename = `teachbook_${lang}.pdf`;
+        const pdfFilename = `fisica_iv_${lang}.pdf`;
         const pdfUrl = rootPrefix + `_static/${pdfFilename}`;
 
         const langStrings = {
