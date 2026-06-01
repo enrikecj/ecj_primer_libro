@@ -24,7 +24,7 @@ Pensemos por tanto en una magnitud de un sistema que vamos a denotar con la letr
 
 $$
 \frac{d\eta}{dt} = 0
-$$ (1.1)
+$$ (eq:eta)
 
 ## Equilibrio mecánico
 
@@ -32,7 +32,7 @@ En el caso del equilibrio mecánico, aunque a veces se hable de "equilibrio de f
 
 $$
 \vec{F} = m\frac{d\vec{v}}{dt} = 0 \implies \frac{d\vec{v}}{dt} = 0
-$$ (1.2)
+$$ (eq:force)
 
 por lo que es la velocidad la magnitud que está en equilibrio.
 
@@ -65,10 +65,10 @@ Se descomponen las fuerzas en sus componentes horizontal (eje $x$) y vertical (e
 
 $$
 \vec{F}_T = -T\sin\theta\hat{e}_x + T\cos\theta\hat{e}_y
-$$ (1.3)
+$$ (eq:FT)
 $$
 \vec{F}_g = -mg\hat{e}_y
-$$ (1.4)
+$$ (eq:Fg)
 
 #### 3. Aplicar la condición de equilibrio:
 

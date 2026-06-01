@@ -22,17 +22,17 @@ For a system to be in equilibrium it is not enough that one of its properties is
 
 Let us therefore consider a magnitude of a system that we will denote with the letter $\eta$. We will say that this property is in equilibrium if it does not evolve in time. Mathematically we can write it with the expression:
 
-$$
+$$\label{eq:eta}
 \frac{d\eta}{dt} = 0
-$$ (1.1)
+$$
 
 ## Mechanical equilibrium
 
 In the case of mechanical equilibrium, although sometimes we speak of "force equilibrium", the quantity that is in equilibrium is not the force but the velocity: Since the definition of mechanical equilibrium is that the net force, and not its derivative, is zero, $\vec{F} = 0$, from Newton's second law, $\vec{F} = m\vec{a}$, and taking into account that acceleration is the derivative of velocity, we have that:
 
-$$
+$$\label{eq:force}
 \vec{F} = m\frac{d\vec{v}}{dt} = 0 \implies \frac{d\vec{v}}{dt} = 0
-$$ (1.2)
+$$
 
 so it is the velocity that is the magnitude in equilibrium.
 
@@ -63,12 +63,12 @@ The forces acting on the mass of the pendulum (See {numref}`fig-pendulo-fuerzas`
 
 The forces are decomposed into their horizontal (axis $x$) and vertical (axis $y$) components.
 
-$$
+$$\label{eq:FT}
 \vec{F}_T = -T\sin\theta\hat{e}_x + T\cos\theta\hat{e}_y
-$$ (1.3)
 $$
+$$\label{eq:Fg}
 \vec{F}_g = -mg\hat{e}_y
-$$ (1.4)
+$$
 
 #### 3. Apply the equilibrium condition:
 

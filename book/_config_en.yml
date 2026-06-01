@@ -3,7 +3,7 @@ author: Enrique Conejero Jarque, Luis Plaja Rustein, Javier Rodríguez Vázquez 
 copyright: "2026"
 logo: "_static/logo.png"
 language: en
-exclude_patterns: ["_build", "Thumbs.db", ".DS_Store", "**.ipynb_checkpoints", "_build_*", "es/","temp_build_*", "latex_templates*", "_TRASH*"]
+exclude_patterns: ["_build", "Thumbs.db", ".DS_Store", "**.ipynb_checkpoints", "_build_*", "es/", "temp_build_*", "latex_templates*", "_TRASH*"]
 execute:
   execute_notebooks: off
 parse:
@@ -11,6 +11,7 @@ parse:
     - colon_fence
     - dollarmath
     - linkify
+    - amsmath
   use_download_button: true
   extra_navbar: |
     <div style="margin-top: 10px; font-size: 0.8em; color: #666;">
@@ -23,16 +24,25 @@ sphinx:
     - sphinx_thebe
     - sphinxcontrib.bibtex
     - sphinx_kroki
+    - sphinx.ext.mathjax
   config:
     html_show_copyright: false
     numfig: true
     numfig_secnum_depth: 1
+    math_number_all: true
+    math_numfig: true
+    math_eqref_format: "({number})"
+    numfig_format:
+      figure: "Figure %s"
+      table: "Table %s"
+      code-block: "Example %s"
+      equation: "Equation %s"
     suppress_warnings:
-    - bibtex.duplicate_citation
+      - bibtex.duplicate_citation
     html_js_files:
-    - custom.js
+      - custom.js
     bibtex_bibfiles:
-    - _static/references.bib
+      - _static/references.bib
     thebe_config:
       always_load: false
       repository_url: https://github.com/binder-examples/jupyter-stacks-datascience
@@ -42,19 +52,20 @@ sphinx:
       selector_output: ".output, .cell_output"
 html:
   extra_footer: |
-    <p>Built with a modified version of <a href="https://teachbooks.io/">TeachBooks</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener noreferrer">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt=""></a></p>
+    <p>Built with a modified version of <a href="https://teachbooks.io/">TeachBooks</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopone noreferrer">CC BY 4.0<img style=\"height:22px!important;margin-left:3px;vertical-align:text-bottom;\" src=\"https://mirrors.creativecommons.org/presskit/icons/cc.svg\" alt=\"\"><img style=\"height:22px!important;margin-left:3px;vertical-align:text-bottom;\" src=\"https://mirrors.creativecommons.org/presskit/icons/by.svg\" alt=\"\"></a></p>
 latex_docclass:
   book: jupyterBook
 latex:
   latex_engine: xelatex
   options: "english"
-  subtitle: "Oscillations, waves, optics, and quantum physics"       # Optional
+  subtitle: "Oscillations, waves, optics, and quantum physics"
   header_title: Physics IV Notes
-  institution: "Universidad de Salamanca"  # Optional
-  edition: "1st Edition"                # Optional
-  cover_logo: "_static/usal_logo.png"  # PDF cover logo; the web logo is configured above in `logo`
-  # isbn: "978-84-XXXXX-XX-X"          # Optional
-  # doi: "10.XXXX/xxxxx"               # Optional
+  institution: "Universidad de Salamanca"
+  edition: "1st Edition"
+  cover_logo: "_static/usal_logo.png"
   preamble: |
     \usepackage[english]{babel}
     \selectlanguage{english}
+    \usepackage{amsmath}
+    \numberwithin{equation}{section}
+    \numberwithin{figure}{section}

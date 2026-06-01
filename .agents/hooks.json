@@ -1,0 +1,14 @@
+{
+  "PreInvocation": [
+    {
+      "type": "command",
+      "command": "python .agents/skills/git_sync_notify/git_sync_notify.py --init"
+    }
+  ],
+  "Stop": [
+    {
+      "type": "command",
+      "command": "python .agents/skills/git_sync_notify/git_sync_notify.py --finalize"
+    }
+  ]
+}

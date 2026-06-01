@@ -545,11 +545,21 @@ def prepare_bibliography_for_pdf(temp_root, lang, config_path):
     output_rel = Path("_static") / "generated" / "bibliography" / f"references_used_{lang}.bib"
     output_file = temp_path / output_rel
 
-    result = collect_used_bibliography(
-        content_dir=content_dir,
-        bib_file=bib_file,
-        output_file=output_file,
-    )
+    # Asegurar que el archivo de bibliografía exista en el árbol temporal
+    if not bib_file.is_file():
+        src_bib = Path(PROJECT_ROOT) / "book" / "_static" / "references.bib"
+        if not src_bib.is_file():
+            raise FileNotFoundError(f"Bibliografía original no encontrada en {src_bib}")
+        shutil.copy2(src_bib, bib_file)
+    # Copiar la bibliografía completa en lugar de filtrar solo las citadas
+    output_file.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(bib_file, output_file)
+    # Crear un objeto dummy para mantener la interfaz esperada
+    class _DummyResult:
+        citation_count = "todos"
+        used_keys = []
+    result = _DummyResult()
+
     update_bibtex_config_for_pdf(str(config_path), output_rel.as_posix())
     reference_page = find_global_bibliography_page(content_dir)
     rewrite_global_bibliography_to_all(reference_page)
