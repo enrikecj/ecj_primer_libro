@@ -1,6 +1,6 @@
 # Contexto del proyecto — Proyecto: ecj_primer_libro
 
-Última actualización: 2026-06-02T12:30:00Z
+Última actualización: 2026-06-02T12:40:00Z
 
 Este archivo es el punto de referencia compartido para trabajar en el proyecto desde distintos ordenadores. Actualiza la sección "Última actualización" con una marca de tiempo ISO en cada cambio.
 
@@ -50,6 +50,21 @@ Este archivo es el punto de referencia compartido para trabajar en el proyecto d
 - [x] Ejecutar `optimize_static_assets.py --check` y corregir fallbacks faltantes para GIFs/WebP.
 - [ ] Remover/convertir `DEBUG` prints a `logging.debug()`.
 - [ ] Actualizar workflow de CI para ejecutar tests y renderizar diagramas antes del build.
+- [ ] Cambiar la etiqueta de la referencia `[oCB22]` a `[Phe22]`.
+- [ ] Corregir la numeración de ecuaciones en la versión HTML inglesa del capítulo 1 para que aparezcan numeradas como en la versión española.
+- [ ] Alinear el estilo de numeración de ecuaciones HTML con el PDF generado: `(1.1), (1.2), ...` en lugar de `(#capítulo.#ecuación)`.
+- [ ] Separar visualmente las ecuaciones en las líneas “Equilibrio en x” y “Equilibrio en y” del apartado 3 del ejemplo 1, para que queden menos pegadas a los dos puntos.
+- [ ] Añadir un pequeño espacio antes de los vectores unitarios en las ecuaciones donde aparecen, para mejorar la legibilidad.
+- [ ] Dividir el capítulo 1 en secciones cuando se añada más material: pendiente de definición de secciones.
+
+**7. Notas editorial / de formato**
+
+- La referencia bibliográfica debe renombrarse de `[oCB22]` a `[Phe22]` en todas las versiones.
+- La versión inglesa HTML del capítulo 1 actualmente no muestra ecuaciones numeradas; hay que hacerla coincidir con la versión española.
+- El estilo de numeración de ecuaciones en HTML debe ser uniforme con el PDF generado: `(1.1), (1.2), ...`.
+- En el apartado 3 del ejemplo 1, las ecuaciones bajo “Equilibrio en x” y “Equilibrio en y” deben separarse más de los dos puntos para mejorar el diseño.
+- Añadir un pequeño espacio antes de los vectores unitarios en las ecuaciones para que no queden pegados al símbolo anterior.
+- Mantener consistencia tipográfica entre las versiones HTML y PDF en todo el capítulo 1.
 
 **Resultados de las comprobaciones recientes**
 
@@ -64,26 +79,26 @@ Este archivo es el punto de referencia compartido para trabajar en el proyecto d
 - El entorno `.venv` no tiene `pytest` instalado, por lo que la suite se ha ejecutado con `unittest`.
 - El fallo en `test_schemdraw_cells_render_once` sugiere revisar la presencia de notebooks o la configuración de `tests/test_schemdraw_notebooks.py`.
 
-**7. Herramientas / MCPs configurados**
+**10. Herramientas / MCPs configurados**
 
 - Python scripts en `scripts/` (varias utilidades automatizables).
 - GitHub Actions: workflows en `.github/workflows/` (deploy.yml, test.yml manual, sftp-deploy.yml).
 - Skills / agents (definidos en `.github/skills/` y `.agents/`): disponibles para automatización y sincronización.
 - Recomendación: usar siempre el entorno virtual `.venv` creado por `scripts/setup_env.py`.
 
-**8. Contacts**
+**11. Contacts**
 
 - Mantenedor principal: Enrique Conejero Jarque (`enrikecj@usal.es`) — autor/propietario principal del repositorio.
 - Contacto de CI / despliegue: mismo responsable a falta de otro contacto claro en el repo.
 - Otros colaboradores: completar aquí si hay más personas trabajando en el proyecto.
 
-**9. Notas sobre actualización del archivo**
+**12. Notas sobre actualización del archivo**
 
 - Regla: quien edite este archivo debe añadir/actualizar la marca de tiempo en la cabecera (`Última actualización:`) usando formato ISO.
 - Para cambios menores (estado de tareas completadas): editar la sección 6 y añadir una línea con la marca de tiempo del cambio y autor.
 - Para cambios de arquitectura o decisiones formales: registrar la decisión en la sección 2 con fecha, autor y motivo.
 
-**9. Sugerencias / Cosas que añadiría**
+**13. Sugerencias / Cosas que añadiría**
 
 - Añadir un bloque `Contacts` con responsables (mantenedor, CI owner) si hay varios colaboradores.
 - Añadir una breve sección `How to run quick checks` con los comandos clave (check_encoding, check_multilang_integrity, pytest, render_diagrams).
