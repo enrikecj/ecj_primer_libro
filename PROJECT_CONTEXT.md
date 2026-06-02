@@ -1,6 +1,6 @@
 # Contexto del proyecto — Proyecto: ecj_primer_libro
 
-Última actualización: 2026-06-02T12:40:00Z
+Última actualización: 2026-06-02T12:45:00Z
 
 Este archivo es el punto de referencia compartido para trabajar en el proyecto desde distintos ordenadores. Actualiza la sección "Última actualización" con una marca de tiempo ISO en cada cambio.
 
@@ -74,7 +74,7 @@ Este archivo es el punto de referencia compartido para trabajar en el proyecto d
 - ✅ `optimize_static_assets.py --check`: 110 assets revisados, 0 optimizables pendientes, 0 GIFs sin PNG fallback.
 - ⚠️ `unittest discover tests -v`: 8 tests ejecutados, 1 fallo en `test_schemdraw_cells_render_once` porque no se encontraron notebooks.
 
-**Notas adicionales**
+**9. Notas adicionales**
 
 - El entorno `.venv` no tiene `pytest` instalado, por lo que la suite se ha ejecutado con `unittest`.
 - El fallo en `test_schemdraw_cells_render_once` sugiere revisar la presencia de notebooks o la configuración de `tests/test_schemdraw_notebooks.py`.
