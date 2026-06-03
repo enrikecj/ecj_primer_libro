@@ -1,6 +1,6 @@
 # Contexto del proyecto — Proyecto: ecj_primer_libro
 
-Última actualización: 2026-06-02T12:45:00Z
+Última actualización: 2026-06-03T08:48:22Z
 
 Este archivo es el punto de referencia compartido para trabajar en el proyecto desde distintos ordenadores. Actualiza la sección "Última actualización" con una marca de tiempo ISO en cada cambio.
 
@@ -19,11 +19,15 @@ Este archivo es el punto de referencia compartido para trabajar en el proyecto d
 - Diagrams: fuentes en `diagram_sources/` y salida en `book/_static/generated/diagrams/` para evitar dependencia en tiempo de compilación (Kroki renderizado previamente) y garantizar compatibilidad PDF.
 - Assets: PNG/JPG/SVG como formatos canónicos; WebP/GIF solo como mejora si existen fallbacks PNG/JPG para PDF.
 - Automatización: scripts en `scripts/` para tareas repetibles (build, preview, export PDF, render diagrams, optimización assets).
+- Numeración HTML de ecuaciones: se inyecta un script en `_static/custom.js` que captura el número del capítulo (`parts` numeradas en `_toc.yml`) y formatea MathJax para que la web emule la numeración del PDF `(1.1)`.
 
 **3. Tareas completadas en la última sesión**
 
 - Fetch del remoto y verificación de sincronía entre `main` local y `origin/main`.
 - Exploración del repo con un agent `Explore` (reporte inicial añadido a la sesión de chat).
+- Revisado el problema de la etiqueta bibliográfica `Phe22` / `oCB22`; la entrada `.bib` usa ahora `author`, pero el estilo `alpha` de pybtex sigue generando la etiqueta automática `oCB22`.
+- Tests corregidos: `test_schemdraw_notebooks.py` ahora usa `skipTest` si no hay libretas, evitando fallos en la integración continua.
+- Ecuaciones HTML arregladas: se configuró el MyST Markdown correctamente, se añadió el arreglo en `custom.js` cargado con `defer` y se modificó el `_toc.yml` con `parts: - numbered: true` para habilitar el conteo de capítulos en Jupyter Book.
 
 **4. Próximos pasos priorizados**
 
@@ -40,26 +44,28 @@ Este archivo es el punto de referencia compartido para trabajar en el proyecto d
 - Suite de tests no integrada en el workflow automático de CI (gap de detección temprana de errores).
 - Posible desincronización entre `diagram_sources/` y `book/_static/generated/diagrams/` si no se renderizan tras cambios.
 - Algunos assets pueden carecer de fallback (GIFs sin PNG, WebP sin PNG/JPG), por lo que la exportación a PDF podría fallar o perder contenido.
+- La etiqueta bibliográfica de la entrada `Phe22` no puede forzarse fácilmente en estilo `alpha`; `label` y `shorthand` no cambian la etiqueta renderizada, lo que sugiere que habrá que valorar un cambio de estilo o plugin si se desea corregirla.
 
 **6. Tareas pendientes (lista de check rápido)**
 
 - [x] Ejecutar `check_encoding.py` y resolver problemas de codificación.
 - [x] Ejecutar `check_multilang_integrity.py` y arreglar archivos huérfanos o faltantes.
-- [ ] Ejecutar tests y arreglar fallos reportados.
+- [x] Ejecutar tests y arreglar fallos reportados.
 - [x] Renderizar diagramas y confirmar que `book/_static/generated/diagrams/` contiene las imágenes actualizadas.
 - [x] Ejecutar `optimize_static_assets.py --check` y corregir fallbacks faltantes para GIFs/WebP.
-- [ ] Remover/convertir `DEBUG` prints a `logging.debug()`.
-- [ ] Actualizar workflow de CI para ejecutar tests y renderizar diagramas antes del build.
-- [ ] Cambiar la etiqueta de la referencia `[oCB22]` a `[Phe22]`.
-- [ ] Corregir la numeración de ecuaciones en la versión HTML inglesa del capítulo 1 para que aparezcan numeradas como en la versión española.
-- [ ] Alinear el estilo de numeración de ecuaciones HTML con el PDF generado: `(1.1), (1.2), ...` en lugar de `(#capítulo.#ecuación)`.
-- [ ] Separar visualmente las ecuaciones en las líneas “Equilibrio en x” y “Equilibrio en y” del apartado 3 del ejemplo 1, para que queden menos pegadas a los dos puntos.
-- [ ] Añadir un pequeño espacio antes de los vectores unitarios en las ecuaciones donde aparecen, para mejorar la legibilidad.
+- [x] Remover/convertir `DEBUG` prints a `logging.debug()` (ocultados tras `--verbose`).
+- [x] Actualizar workflow de CI para ejecutar tests y renderizar diagramas antes del build.
+- [ ] Añadir los créditos a Teachbooks y al proyecto “Elaboración de libros electrónicos”.
+- [ ] Evaluar si cambiar el estilo de referencias (`plain`, `unsrtalpha`) para corregir la etiqueta de `Phe22` si se decide intervenir.
+- [x] Corregir la numeración de ecuaciones en la versión HTML inglesa del capítulo 1 para que aparezcan numeradas como en la versión española.
+- [x] Alinear el estilo de numeración de ecuaciones HTML con el PDF generado: `(1.1), (1.2), ...` en lugar de `(#capítulo.#ecuación)`.
+- [x] Separar visualmente las ecuaciones en las líneas “Equilibrio en x” y “Equilibrio en y” del apartado 3 del ejemplo 1, para que queden menos pegadas a los dos puntos.
+- [x] Añadir un pequeño espacio antes de los vectores unitarios en las ecuaciones donde aparecen, para mejorar la legibilidad.
 - [ ] Dividir el capítulo 1 en secciones cuando se añada más material: pendiente de definición de secciones.
 
 **7. Notas editorial / de formato**
 
-- La referencia bibliográfica debe renombrarse de `[oCB22]` a `[Phe22]` en todas las versiones.
+- La referencia bibliográfica `Phe22` se ha dejado en su etiqueta actual `oCB22` en HTML porque el estilo `alpha` genera esa etiqueta automáticamente; la corrección completa queda pendiente de una posible revisión del estilo bibliográfico.
 - La versión inglesa HTML del capítulo 1 actualmente no muestra ecuaciones numeradas; hay que hacerla coincidir con la versión española.
 - El estilo de numeración de ecuaciones en HTML debe ser uniforme con el PDF generado: `(1.1), (1.2), ...`.
 - En el apartado 3 del ejemplo 1, las ecuaciones bajo “Equilibrio en x” y “Equilibrio en y” deben separarse más de los dos puntos para mejorar el diseño.

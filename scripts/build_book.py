@@ -544,12 +544,13 @@ def build_language(lang):
             )
 
             # DEBUG: List source files to verify we actually have something to copy
-            print(f"   🔍 Source _static content ({temp_static_dir}):")
-            try:
-                for item in os.listdir(temp_static_dir):
-                    print(f"      - {item}")
-            except Exception as e:
-                print(f"      ⚠️ Error listing source: {e}")
+            if VERBOSE:
+                print(f"   🔍 Source _static content ({temp_static_dir}):")
+                try:
+                    for item in os.listdir(temp_static_dir):
+                        print(f"      - {item}")
+                except Exception as e:
+                    print(f"      ⚠️ Error listing source: {e}")
 
             if not os.path.exists(final_static_dir):
                 os.makedirs(final_static_dir)
@@ -558,9 +559,10 @@ def build_language(lang):
             merge_dir_into(temp_static_dir, final_static_dir)
 
             # DEBUG: Verify copy
-            print(
-                f"   ✅ Merge complete. Final _static count: {len(os.listdir(final_static_dir))}"
-            )
+            if VERBOSE:
+                print(
+                    f"   ✅ Merge complete. Final _static count: {len(os.listdir(final_static_dir))}"
+                )
 
         # CRITICAL FIX: Sphinx stores document images in a root-level _images/
         # directory, while localized pages live under /es/ and /en/ and link to

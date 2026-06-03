@@ -75,6 +75,12 @@ jobs:
       - name: Check static assets
         run: .venv/bin/python scripts/optimize_static_assets.py --check
 
+      - name: Run Tests
+        run: .venv/bin/python -m unittest discover tests -v
+
+      - name: Render Diagrams
+        run: .venv/bin/python scripts/render_diagrams.py
+
       - name: Build book
         run: .venv/bin/python scripts/build_book.py
 
@@ -160,6 +166,14 @@ jobs:
       - name: Check static assets
         shell: pwsh
         run: .venv\Scripts\python.exe scripts\optimize_static_assets.py --check
+
+      - name: Run Tests
+        shell: pwsh
+        run: .venv\Scripts\python.exe -m unittest discover tests -v
+
+      - name: Render Diagrams
+        shell: pwsh
+        run: .venv\Scripts\python.exe scripts\render_diagrams.py
 
       - name: Build book
         shell: pwsh

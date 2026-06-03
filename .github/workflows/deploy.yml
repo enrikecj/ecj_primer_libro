@@ -57,6 +57,14 @@ jobs:
         run: |
           .venv/bin/python scripts/optimize_static_assets.py --check
 
+      - name: Run Tests
+        run: |
+          .venv/bin/python -m unittest discover tests -v
+
+      - name: Render Diagrams
+        run: |
+          .venv/bin/python scripts/render_diagrams.py
+
       - name: Install PDF toolchain (same as local full setup)
         env:
           GITHUB_TOKEN: ${{ github.token }}

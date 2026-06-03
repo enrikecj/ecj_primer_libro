@@ -1,9 +1,7 @@
 # Bibliografía
 
-```{raw} latex
-\nocite{*}
-```
-
 ```{bibliography}
+:style: plain
 :all:
 ```
+

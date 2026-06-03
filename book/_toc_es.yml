@@ -1,6 +1,7 @@
 format: jb-book
 root: es/intro
-chapters:
-- file: es/tema_1
-- file: es/bibliografia
-
+parts:
+  - numbered: true
+    chapters:
+    - file: es/tema_1
+    - file: es/bibliografia

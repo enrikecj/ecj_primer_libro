@@ -39,4 +39,4 @@ Para profundizar en los contenidos del curso, te recomendamos la siguiente bibli
 - Applets de matemáticas y física: [falstad.com](https://www.falstad.com/)
 - MIT Mathlets: [mathlets.org](https://mathlets.org/mathlets/)
 - Animaciones de física y astronomía (PSU y mrg3): [phys23p.sl.psu.edu](https://phys23p.sl.psu.edu/phys_anim/) / [YouTube](https://www.youtube.com/mrg3)
-- Simulaciones interactivas PhET: [phet.colorado.edu](https://phet.colorado.edu/) {cite:p}`phet2022`
+- Simulaciones interactivas PhET: [phet.colorado.edu](https://phet.colorado.edu/) {cite:p}`Phe22`

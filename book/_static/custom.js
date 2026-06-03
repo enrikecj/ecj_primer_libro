@@ -287,3 +287,40 @@ function injectPDFButton(languages, rootPrefix) {
         sidebar.appendChild(div.firstChild);
     }
 }
+
+// ==============================================================================
+// MathJax Equation Numbering Fix
+// Fixes HTML equation numbering so it matches PDF style (e.g. 1.1 instead of 1)
+// ==============================================================================
+(function () {
+    window.MathJax = window.MathJax || {};
+    window.MathJax.tex = window.MathJax.tex || {};
+    window.MathJax.tex.tagformat = window.MathJax.tex.tagformat || {};
+
+    window.MathJax.tex.tagformat.number = function (n) {
+        const sectionSpan = document.querySelector('h1 .section-number');
+        if (sectionSpan) {
+            let chapterNum = sectionSpan.textContent.trim().replace(/\.$/, '');
+            if (chapterNum.endsWith('.')) {
+                chapterNum = chapterNum.slice(0, -1);
+            }
+            return chapterNum + '.' + n;
+        }
+        return n;
+    };
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const sectionSpan = document.querySelector('h1 .section-number');
+        if (sectionSpan) {
+            let chapterNum = sectionSpan.textContent.trim().replace(/\.$/, '');
+            
+            document.querySelectorAll('a.internal[href^="#equation-"]').forEach(link => {
+                let currentText = link.textContent.trim();
+                if (currentText.startsWith('(') && currentText.endsWith(')') && !currentText.includes('.')) {
+                    let num = currentText.slice(1, -1);
+                    link.textContent = `(${chapterNum}.${num})`;
+                }
+            });
+        }
+    });
+})();

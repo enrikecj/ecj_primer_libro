@@ -1064,7 +1064,6 @@ def build_pdf_for_lang(lang, engine_name):
             return False
     except Exception as e:
         print(f"❌ Error compilando {lang}: {e}")
-        # print(f"DEBUG: log log log...")
         return False
     finally:
         os.chdir(current_dir)

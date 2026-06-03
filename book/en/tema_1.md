@@ -1,4 +1,4 @@
-# Chapter 1. EQUILIBRIUM, DAMPING AND OSCILLATIONS
+# Chapter 1. Equilibrium, damping and oscillations
 
 ## Equilibrium
 
@@ -22,17 +22,17 @@ For a system to be in equilibrium it is not enough that one of its properties is
 
 Let us therefore consider a magnitude of a system that we will denote with the letter $\eta$. We will say that this property is in equilibrium if it does not evolve in time. Mathematically we can write it with the expression:
 
-$$\label{eq:eta}
-\frac{d\eta}{dt} = 0
 $$
+\frac{d\eta}{dt} = 0
+$$ (eq:eta)
 
 ## Mechanical equilibrium
 
 In the case of mechanical equilibrium, although sometimes we speak of "force equilibrium", the quantity that is in equilibrium is not the force but the velocity: Since the definition of mechanical equilibrium is that the net force, and not its derivative, is zero, $\vec{F} = 0$, from Newton's second law, $\vec{F} = m\vec{a}$, and taking into account that acceleration is the derivative of velocity, we have that:
 
-$$\label{eq:force}
-\vec{F} = m\frac{d\vec{v}}{dt} = 0 \implies \frac{d\vec{v}}{dt} = 0
 $$
+\vec{F} = m\frac{d\vec{v}}{dt} = 0 \implies \frac{d\vec{v}}{dt} = 0
+$$ (eq:force)
 
 so it is the velocity that is the magnitude in equilibrium.
 
@@ -55,29 +55,29 @@ Scheme of the forces acting on a simple pendulum.
 
 We will see how to deduce it mathematically step by step:
 
-#### 1. Identify the forces:
+#### Identify the forces:
 
 The forces acting on the mass of the pendulum (See {numref}`fig-pendulo-fuerzas`) are the tension $T$ of the string and the weight $\vec{F}_g = -mg \hat{e}_y$ (where the minus sign indicates that it points in the negative vertical direction).
 
-#### 2. Project the forces onto the axes:
+#### Project the forces onto the axes:
 
 The forces are decomposed into their horizontal (axis $x$) and vertical (axis $y$) components.
 
-$$\label{eq:FT}
-\vec{F}_T = -T\sin\theta\hat{e}_x + T\cos\theta\hat{e}_y
 $$
-$$\label{eq:Fg}
-\vec{F}_g = -mg\hat{e}_y
+\vec{F}_T = -T\sin\theta\,\hat{e}_x + T\cos\theta\,\hat{e}_y
+$$ (eq:FT)
 $$
+\vec{F}_g = -mg\,\hat{e}_y
+$$ (eq:Fg)
 
-#### 3. Apply the equilibrium condition:
+#### Apply the equilibrium condition:
 
 For the velocity to be constant, the acceleration must be zero. According to Newton's second law, this implies that the sum of the forces on each axis must be zero.
 
-- **Equilibrium in x**: $-T \sin \theta = 0$
-- **Equilibrium in y**: $T \cos \theta - mg = 0$
+- **Equilibrium in x**: $\quad -T \sin \theta = 0$
+- **Equilibrium in y**: $\quad T \cos \theta - mg = 0$
 
-#### 4. Solve the equations:
+#### Solve the equations:
 
 The equation for the horizontal axis implies that $\sin \theta = 0$, which means that $\theta = 0$ (vertical position). Substituting this condition into the equation for axis $y$, we obtain $T = mg$, which means that the tension equals the weight at the equilibrium position.
 

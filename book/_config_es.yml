@@ -26,6 +26,7 @@ sphinx:
     - sphinx_kroki
     - sphinx.ext.mathjax
   config:
+    bibtex_default_style: plain
     html_show_copyright: false
     numfig: true
     numfig_secnum_depth: 1
@@ -36,11 +37,11 @@ sphinx:
       figure: "Figura %s"
       table: "Tabla %s"
       code-block: "Ejemplo %s"
-      equation: "Ecuación %s"
+      equation: "(%s)"
     suppress_warnings:
       - bibtex.duplicate_citation
     html_js_files:
-      - custom.js
+      - ["custom.js", {"defer": "defer"}]
     bibtex_bibfiles:
       - _static/references.bib
     thebe_config:
@@ -52,7 +53,7 @@ sphinx:
       selector_output: ".output, .cell_output"
 html:
   extra_footer: |
-    <p>Construido con una versión modificada de <a href="https://teachbooks.io/">TeachBooks</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopone noreferrer">CC BY 4.0<img style=\"height:22px!important;margin-left:3px;vertical-align:text-bottom;\" src=\"https://mirrors.creativecommons.org/presskit/icons/cc.svg\" alt=\"\"><img style=\"height:22px!important;margin-left:3px;vertical-align:text-bottom;\" src=\"https://mirrors.creativecommons.org/presskit/icons/by.svg\" alt=\"\"></a></p>
+    <p>Construido con una versión modificada de <a href="https://teachbooks.io/">TeachBooks</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopone noreferrer">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt=""></a></p>
 latex_docclass:
   book: jupyterBook
 latex:

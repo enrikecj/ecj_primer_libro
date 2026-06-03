@@ -1,4 +1,4 @@
-# TEMA 1. EQUILIBRIO, AMORTIGUAMIENTO Y OSCILACIONES
+# Tema 1. Equilibrio, amortiguamiento y oscilaciones
 
 ## Equilibrio
 
@@ -55,29 +55,29 @@ Esquema de las fuerzas que intervienen en el péndulo simple.
 
 Veamos cómo deducirlo matemáticamente paso a paso:
 
-#### 1. Identificar las fuerzas:
+#### Identificar las fuerzas:
 
 Las fuerzas que actúan sobre la masa del péndulo (Ver {numref}`fig-pendulo-fuerzas`) son la tensión $T$ de la cuerda y el peso $\vec{F}_g = -mg \hat{e}_y$ (donde el signo menos indica que apunta en sentido negativo del eje vertical).
 
-#### 2. Proyectar las fuerzas en los ejes:
+#### Proyectar las fuerzas en los ejes:
 
 Se descomponen las fuerzas en sus componentes horizontal (eje $x$) y vertical (eje $y$).
 
 $$
-\vec{F}_T = -T\sin\theta\hat{e}_x + T\cos\theta\hat{e}_y
+\vec{F}_T = -T\sin\theta\,\hat{e}_x + T\cos\theta\,\hat{e}_y
 $$ (eq:FT)
 $$
-\vec{F}_g = -mg\hat{e}_y
+\vec{F}_g = -mg\,\hat{e}_y
 $$ (eq:Fg)
 
-#### 3. Aplicar la condición de equilibrio:
+#### Aplicar la condición de equilibrio:
 
 Para que la velocidad sea constante, la aceleración debe ser cero. Según la segunda ley de Newton, esto implica que la suma de las fuerzas en cada eje debe ser igual a cero.
 
-- **Equilibrio en x**: $-T \sin \theta = 0$
-- **Equilibrio en y**: $T \cos \theta - mg = 0$
+- **Equilibrio en x**: $\quad -T \sin \theta = 0$
+- **Equilibrio en y**: $\quad T \cos \theta - mg = 0$
 
-#### 4. Resolver las ecuaciones:
+#### Resolver las ecuaciones:
 
 La ecuación para el eje horizontal implica que $\sin \theta = 0$, lo que significa que $\theta = 0$ (posición vertical). Sustituyendo esta condición en la ecuación para el eje $y$, se obtiene $T = mg$, lo que significa que la tensión es igual al peso en la posición de equilibrio.
 
