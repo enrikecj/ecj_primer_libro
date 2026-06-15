@@ -1,7 +1,7 @@
 # Bibliografía
 
 ```{bibliography}
-:style: plain
-:all:
+:style: unsrt
+:cited:
 ```
 

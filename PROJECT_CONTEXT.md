@@ -1,6 +1,6 @@
 # Contexto del proyecto — Proyecto: ecj_primer_libro
 
-Última actualización: 2026-06-03T08:48:22Z
+Última actualización: 2026-06-15T18:50:00+02:00
 
 Este archivo es el punto de referencia compartido para trabajar en el proyecto desde distintos ordenadores. Actualiza la sección "Última actualización" con una marca de tiempo ISO en cada cambio.
 
@@ -28,19 +28,23 @@ Este archivo es el punto de referencia compartido para trabajar en el proyecto d
 - Revisado el problema de la etiqueta bibliográfica `Phe22` / `oCB22`; la entrada `.bib` usa ahora `author`, pero el estilo `alpha` de pybtex sigue generando la etiqueta automática `oCB22`.
 - Tests corregidos: `test_schemdraw_notebooks.py` ahora usa `skipTest` si no hay libretas, evitando fallos en la integración continua.
 - Ecuaciones HTML arregladas: se configuró el MyST Markdown correctamente, se añadió el arreglo en `custom.js` cargado con `defer` y se modificó el `_toc.yml` con `parts: - numbered: true` para habilitar el conteo de capítulos en Jupyter Book.
+- Añadido y estructurado el contenido del **Tema 1** (`tema_1.md`) tanto en español como en inglés, basándose en el documento `Cap1.md` de la carpeta `recursos_curso` y siguiendo la estructura de `Índice.docx`.
+- Vinculadas e insertadas las figuras del Tema 1 (ubicadas en `recursos_curso/Tema 1/media`) en la carpeta correspondiente de estáticos del libro (`book/_static/`), añadiendo etiquetas (`fig-`) para su correcta citación en el texto.
+- Añadidas y etiquetadas las ecuaciones en LaTeX con su formato correspondiente (`eq-`) y se cuidó de insertar los espacios apropiados antes de los vectores unitarios.
+- Modificado el motor de bibliografía de Jupyter Book en los archivos de configuración (`_config_es.yml` y `_config_en.yml`) para usar el estilo `unsrt`, consiguiendo que las referencias bibliográficas se listen por orden de aparición en lugar de alfabéticamente.
 
 **4. Próximos pasos priorizados**
 
-1. Ejecutar `python scripts/check_encoding.py` (auditoría UTF-8) — prioridad alta.
-2. Ejecutar `python scripts/check_multilang_integrity.py` (validar paridad entre idiomas) — prioridad alta.
-3. Ejecutar la suite de tests: `python -m pytest tests/` y revisar fallos — prioridad alta.
-4. Renderizar diagramas: `python scripts/render_diagrams.py` (requiere internet para Kroki) — prioridad media.
-5. Auditar assets: `python scripts/optimize_static_assets.py --check` — prioridad media.
-6. Añadir job de tests en CI (GitHub Actions) y añadir paso de `render_diagrams.py` al pipeline antes de `build_book.py` — prioridad alta.
+1. Ejecutar la compilación del libro (`python scripts/build_book.py`) para confirmar que el HTML se genera correctamente y validar la estructura final del Tema 1 y su bibliografía.
+2. Ejecutar `python scripts/check_encoding.py` (auditoría UTF-8) — prioridad alta.
+3. Ejecutar `python scripts/check_multilang_integrity.py` (validar paridad entre idiomas) — prioridad alta.
+4. Ejecutar la suite de tests: `python -m pytest tests/` y revisar fallos — prioridad alta.
+5. Renderizar diagramas: `python scripts/render_diagrams.py` (requiere internet para Kroki) — prioridad media.
+6. Auditar assets: `python scripts/optimize_static_assets.py --check` — prioridad media.
+7. Añadir job de tests en CI (GitHub Actions) y añadir paso de `render_diagrams.py` al pipeline antes de `build_book.py` — prioridad alta.
 
 **5. Problemas conocidos / deuda técnica**
 
-- Presencia de algunos `DEBUG` prints en `scripts/build_book.py` y `scripts/export_pdf.py` (limpiar o convertir a `logging`).
 - Suite de tests no integrada en el workflow automático de CI (gap de detección temprana de errores).
 - Posible desincronización entre `diagram_sources/` y `book/_static/generated/diagrams/` si no se renderizan tras cambios.
 - Algunos assets pueden carecer de fallback (GIFs sin PNG, WebP sin PNG/JPG), por lo que la exportación a PDF podría fallar o perder contenido.
@@ -56,12 +60,23 @@ Este archivo es el punto de referencia compartido para trabajar en el proyecto d
 - [x] Remover/convertir `DEBUG` prints a `logging.debug()` (ocultados tras `--verbose`).
 - [x] Actualizar workflow de CI para ejecutar tests y renderizar diagramas antes del build.
 - [ ] Añadir los créditos a Teachbooks y al proyecto “Elaboración de libros electrónicos”.
-- [ ] Evaluar si cambiar el estilo de referencias (`plain`, `unsrtalpha`) para corregir la etiqueta de `Phe22` si se decide intervenir.
+- [x] Evaluar si cambiar el estilo de referencias (`plain`, `unsrtalpha`) para corregir la etiqueta de `Phe22` si se decide intervenir. (Cambiado a `unsrt` para ordenar por aparición).
 - [x] Corregir la numeración de ecuaciones en la versión HTML inglesa del capítulo 1 para que aparezcan numeradas como en la versión española.
 - [x] Alinear el estilo de numeración de ecuaciones HTML con el PDF generado: `(1.1), (1.2), ...` en lugar de `(#capítulo.#ecuación)`.
 - [x] Separar visualmente las ecuaciones en las líneas “Equilibrio en x” y “Equilibrio en y” del apartado 3 del ejemplo 1, para que queden menos pegadas a los dos puntos.
 - [x] Añadir un pequeño espacio antes de los vectores unitarios en las ecuaciones donde aparecen, para mejorar la legibilidad.
+- [x] Añadir el Tema 1 en español e inglés y estructurarlo según el índice de `Índice.docx`.
 - [ ] Dividir el capítulo 1 en secciones cuando se añada más material: pendiente de definición de secciones.
+- [ ] Revisar la numeración de las subsecciones, especialmente en el caso de los ejemplos.
+- [ ] Ver si se pueden incluir las subsecciones y no solo los capítulos en el menú lateral izquierdo.
+- [ ] Recordatorio: Solicitar a Gemini que realice una auditoría completa de las figuras del libro (comprobar fallbacks, resoluciones y visualización).
+- *2026-06-15T15:46:00Z (Agente): Se han eliminado los `DEBUG` prints de `scripts/build_book.py`.*
+- *2026-06-15T15:50:00Z (Agente): Se han modificado las referencias en `intro.md` para usar `{cite:p}` y la bibliografía a `:cited:`.*
+- *2026-06-15T15:57:00Z (Agente): Se cambió el estilo bibliográfico a `unsrt` para ordenar por aparición.*
+- *2026-06-15T18:50:00Z (Agente): Añadido el Tema 1 estructurado en español e inglés, enlazando figuras y ecuaciones, y ordenando la bibliografía por aparición.*
+- *2026-06-15T18:58:00Z (Agente): Añadidas tareas sobre la revisión de numeración de subsecciones/ejemplos y la inclusión de subsecciones en la barra lateral.*
+- *2026-06-15T19:06:00Z (Agente): Añadida tarea recordatorio para realizar auditoría de figuras con Gemini.*
+
 
 **7. Notas editorial / de formato**
 

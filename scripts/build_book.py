@@ -480,9 +480,6 @@ def build_language(lang):
         )
         run_jupyter_book_build(cmd, f"STANDALONE ({lang})")
 
-        # DEBUG: See what was created
-        debug_directory(temp_build_root)
-
         # The output will be in temp_build_root/_build/html/en/ (since en is a subfolder)
         built_html_path_nested = os.path.join(temp_build_root, "_build", "html", lang)
         final_dest = os.path.join(FINAL_HTML_DIR, lang)
@@ -543,26 +540,11 @@ def build_language(lang):
                 f"📦 Merging theme assets from temp build ({lang}) to global _static..."
             )
 
-            # DEBUG: List source files to verify we actually have something to copy
-            if VERBOSE:
-                print(f"   🔍 Source _static content ({temp_static_dir}):")
-                try:
-                    for item in os.listdir(temp_static_dir):
-                        print(f"      - {item}")
-                except Exception as e:
-                    print(f"      ⚠️ Error listing source: {e}")
-
             if not os.path.exists(final_static_dir):
                 os.makedirs(final_static_dir)
 
             # Use the robust merge_dir_into (now global)
             merge_dir_into(temp_static_dir, final_static_dir)
-
-            # DEBUG: Verify copy
-            if VERBOSE:
-                print(
-                    f"   ✅ Merge complete. Final _static count: {len(os.listdir(final_static_dir))}"
-                )
 
         # CRITICAL FIX: Sphinx stores document images in a root-level _images/
         # directory, while localized pages live under /es/ and /en/ and link to
@@ -608,34 +590,14 @@ def merge_dir_into(src_dir, dst_dir):
                 print(f"      ⚠️  Copy error: {e}")
 
 
-def debug_directory(path):
-    """Prints the directory structure for debugging."""
-    if not VERBOSE:
-        return
-    print(f"📂 [DEBUG] Listing contents of: {path}")
-    for root, dirs, files in os.walk(path):
-        level = root.replace(path, "").count(os.sep)
-        indent = " " * 4 * (level)
-        print(f"{indent}{os.path.basename(root)}/")
-        subindent = " " * 4 * (level + 1)
-        for f in files:
-            print(f"{subindent}{f}")
-
-
 def sanitize_config(config_path):
     """
     Removes exclusion patterns entirely to prevent EISDIR errors in temp environment.
     Since we are in a clean temp dir, we don't need complex excludes.
     """
     try:
-        debug_directory(os.path.dirname(config_path))
-        if VERBOSE:
-            print(f"📄 [DEBUG] Reading config from: {config_path}")
         with open(config_path, "r", encoding="utf-8") as f:
             content = f.read()
-            if VERBOSE:
-                print(content)
-                print("-" * 20)
             lines = content.splitlines(keepends=True)
 
         new_lines = []
