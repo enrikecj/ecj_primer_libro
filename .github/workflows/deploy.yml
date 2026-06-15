@@ -65,6 +65,12 @@ jobs:
         run: |
           .venv/bin/python scripts/render_diagrams.py
 
+      - name: Cache LaTeX toolchain
+        uses: actions/cache@v4
+        with:
+          path: .venv/tools
+          key: ${{ runner.os }}-latex-tools-${{ hashFiles('scripts/setup_latex.py') }}
+
       - name: Install PDF toolchain (same as local full setup)
         env:
           GITHUB_TOKEN: ${{ github.token }}

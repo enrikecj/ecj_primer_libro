@@ -1,6 +1,6 @@
 # Contexto del proyecto — Proyecto: ecj_primer_libro
 
-Última actualización: 2026-06-15T18:50:00+02:00
+Última actualización: 2026-06-15T19:14:12+02:00
 
 Este archivo es el punto de referencia compartido para trabajar en el proyecto desde distintos ordenadores. Actualiza la sección "Última actualización" con una marca de tiempo ISO en cada cambio.
 
@@ -60,6 +60,9 @@ Este archivo es el punto de referencia compartido para trabajar en el proyecto d
 - [x] Remover/convertir `DEBUG` prints a `logging.debug()` (ocultados tras `--verbose`).
 - [x] Actualizar workflow de CI para ejecutar tests y renderizar diagramas antes del build.
 - [ ] Añadir los créditos a Teachbooks y al proyecto “Elaboración de libros electrónicos”.
+- [ ] Añadir al final de cada capítulo un resumen (puede elaborarlo NotebookLM).
+- [ ] Añadir enunciados de problemas al final de cada capítulo.
+
 - [x] Evaluar si cambiar el estilo de referencias (`plain`, `unsrtalpha`) para corregir la etiqueta de `Phe22` si se decide intervenir. (Cambiado a `unsrt` para ordenar por aparición).
 - [x] Corregir la numeración de ecuaciones en la versión HTML inglesa del capítulo 1 para que aparezcan numeradas como en la versión española.
 - [x] Alinear el estilo de numeración de ecuaciones HTML con el PDF generado: `(1.1), (1.2), ...` en lugar de `(#capítulo.#ecuación)`.
