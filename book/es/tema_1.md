@@ -1,6 +1,6 @@
 # Tema 1. Equilibrio, amortiguamiento y oscilaciones
 
-## Equilibrio
+## Introducción al equilibrio
 
 En este primer tema vamos a introducir algunos conceptos que son necesarios para entender bien lo que estudiaremos a continuación. El primero de ellos es el concepto de equilibrio. A lo largo de buena parte de la asignatura vamos a estudiar oscilaciones y ondas, que son fenómenos dinámicos, pero es necesario empezar por el equilibrio. Aunque puede parecer que no tiene mucha relación con esos fenómenos, basta darse cuenta de que las oscilaciones de un sistema se producen generalmente alrededor de un punto de equilibrio. El concepto de equilibrio es esencial para el estudio de la dinámica de los sistemas porque nos proporciona el punto de referencia a partir del cual podemos analizar y comprender cómo los sistemas cambian y evolucionan en el tiempo. Por ello, es imprescindible entender bien qué es un punto de equilibrio y, más en general, a qué nos referimos (al menos en esta asignatura) cuando hablamos de equilibrio.
 
@@ -55,11 +55,11 @@ Esquema de las fuerzas que intervienen en el péndulo simple.
 
 Veamos cómo deducirlo matemáticamente paso a paso:
 
-#### Identificar las fuerzas:
+**Identificar las fuerzas:**
 
 Las fuerzas que actúan sobre la masa del péndulo (Ver {numref}`fig-pendulo-fuerzas`) son la tensión $T$ de la cuerda y el peso $\vec{F}_g = -mg \hat{e}_y$ (donde el signo menos indica que apunta en sentido negativo del eje vertical).
 
-#### Proyectar las fuerzas en los ejes:
+**Proyectar las fuerzas en los ejes:**
 
 Se descomponen las fuerzas en sus componentes horizontal (eje $x$) y vertical (eje $y$).
 
@@ -70,18 +70,18 @@ $$
 \vec{F}_g = -mg\,\hat{e}_y
 $$ (eq:Fg)
 
-#### Aplicar la condición de equilibrio:
+**Aplicar la condición de equilibrio:**
 
 Para que la velocidad sea constante, la aceleración debe ser cero. Según la segunda ley de Newton, esto implica que la suma de las fuerzas en cada eje debe ser igual a cero.
 
 - **Equilibrio en x**: $\quad -T \sin \theta = 0$
 - **Equilibrio en y**: $\quad T \cos \theta - mg = 0$
 
-#### Resolver las ecuaciones:
+**Resolver las ecuaciones:**
 
 La ecuación para el eje horizontal implica que $\sin \theta = 0$, lo que significa que $\theta = 0$ (posición vertical). Sustituyendo esta condición en la ecuación para el eje $y$, se obtiene $T = mg$, lo que significa que la tensión es igual al peso en la posición de equilibrio.
 
-#### Conclusión:
+**Conclusión:**
 
 > La condición de equilibrio en un péndulo simple se cumple cuando el ángulo $\theta$ es cero, lo que corresponde a la posición vertical inferior. En este punto, la tensión de la cuerda es igual al peso y, además de no haber aceleración, la velocidad debe ser nula para mantener la condición de equilibrio, ya que si no lo fuera variaría el ángulo del péndulo y dejaría de estar en equilibrio.
 
@@ -105,6 +105,8 @@ Fuerzas que actúan sobre una esfera en caída libre con rozamiento: el peso $F_
 ```
 
 Puedes intentar encontrar la condición de equilibrio en este caso. En la sección de [Amortiguamiento](sec-amortiguamiento) lo resolveremos paso a paso.
+
+## Otros tipos de equilibrio
 
 ### Ejemplo 3. Equilibrio térmico
 
@@ -208,9 +210,9 @@ En general, el número de grados de libertad será igual al número de variables
 
 La identificación de los grados de libertad es crucial para simplificar el análisis. Al utilizar las coordenadas independientes que respetan las restricciones del sistema, las ecuaciones de movimiento se vuelven más manejables.
 
-Por ejemplo, al analizar el movimiento del péndulo simple es mucho más fácil trabajar con una sola ecuación para el ángulo $\theta$ que con dos ecuaciones acopladas para $x$ e $y$. Veámoslo:
+Retomemos el ejemplo 2 y analicemos el movimiento del péndulo simple (ver {numref}`fig-pendulo-fuerzas`). En este caso es mucho más fácil trabajar con una sola ecuación para el ángulo $\theta$ que con dos ecuaciones acopladas para $x$ e $y$. Veámoslo:
 
-#### 1. Ecuaciones de movimiento en $x$ e $y$
+**Ecuaciones de movimiento en $x$ e $y$**
 
 A partir de las fuerzas que intervienen en el problema ({eq}`eq:FT` y {eq}`eq:Fg`) podemos escribir las ecuaciones de movimiento:
 
@@ -222,7 +224,7 @@ $$
 m\frac{d^2y}{dt^2} = -mg + T\cos\theta
 $$ (eq:pendulo-y)
 
-#### 2. Cambio a coordenadas polares $(l,\, \theta)$
+**Cambio a coordenadas polares $(l,\, \theta)$**
 
 Como la relación entre los dos sistemas de coordenadas es $x = l\sin\theta$, $y = l(1 - \cos\theta)$, derivando tenemos:
 
@@ -242,7 +244,7 @@ $$
 \frac{d^2y}{dt^2} = l\cos\theta\left(\frac{d\theta}{dt}\right)^2 + l\sin\theta\,\frac{d^2\theta}{dt^2}
 $$ (eq:d2y)
 
-#### 3. Ecuación del péndulo en la coordenada $\theta$
+**Ecuación del péndulo en la coordenada $\theta$**
 
 Sustituyendo {eq}`eq:d2x` y {eq}`eq:d2y` en {eq}`eq:pendulo-x` y {eq}`eq:pendulo-y`, multiplicando la primera por $\cos\theta$ y la segunda por $\sin\theta$, y sumando ambas, se elimina la tensión $T$. Después de la simplificación, se llega a:
 
@@ -303,11 +305,11 @@ siendo $C$ una constante positiva. La solución general para este tipo de ecuaci
 
 Para entender mejor el concepto de amortiguamiento, vamos a estudiar paso a paso el Ejemplo 2: la caída libre de un objeto esférico en un fluido (ver {numref}`fig-esfera-caida`).
 
-#### 1. Definición del problema
+**Definición del problema**
 
 Un objeto cae dentro de un fluido sin causar turbulencias. Actúan sobre él la fuerza de gravedad y la fuerza de arrastre del fluido. Por simplicidad despreciamos el empuje.
 
-#### 2. Ecuación de movimiento
+**Ecuación de movimiento**
 
 Las dos fuerzas involucradas son la de la gravedad, $F_g = -mg$, y la de arrastre, $F_a = -bv$. La ecuación de movimiento es:
 
@@ -315,7 +317,7 @@ $$
 m\frac{dv}{dt} = F_g + F_a = -mg - bv
 $$ (eq:caida-libre)
 
-#### 3. Condición de equilibrio
+**Condición de equilibrio**
 
 La velocidad de equilibrio $v_{eq}$ se alcanza cuando la aceleración del objeto es cero, $dv/dt = 0$. Resolviendo, obtenemos:
 
@@ -325,7 +327,7 @@ $$ (eq:vel-eq)
 
 Esto significa que después de un cierto tiempo, el objeto caerá a una velocidad constante $v_{eq}$, determinada por el equilibrio entre la fuerza de gravedad y la fuerza de arrastre.
 
-#### 4. Solución de la ecuación de movimiento
+**Solución de la ecuación de movimiento**
 
 Resolvemos {eq}`eq:caida-libre` por separación de variables:
 
@@ -341,7 +343,7 @@ $$ (eq:vel-tiempo)
 
 donde $v_0 = v(0)$ es la velocidad inicial.
 
-#### 5. Análisis de la solución
+**Análisis de la solución**
 
 La solución {eq}`eq:vel-tiempo` describe el comportamiento de un sistema amortiguado: la velocidad del objeto se acerca exponencialmente a la velocidad de equilibrio {eq}`eq:vel-eq`. La **constante de tiempo** $\tau = m/b$ determina la rapidez de ese proceso. Cuanto mayor sea la masa del objeto o menor sea la constante de amortiguamiento, mayor será $\tau$ y más lentamente alcanzará el objeto el equilibrio.
 
@@ -362,9 +364,11 @@ donde $f(\eta - \eta_{eq})$ describe la fuerza restauradora. Para que haya oscil
 - $f(\eta - \eta_{eq}) = 0$ si $\eta = \eta_{eq}$: la fuerza restauradora es cero en el equilibrio.
 - $f(\eta - \eta_{eq}) < 0$ si $\eta > \eta_{eq}$: la fuerza empuja la variable hacia abajo (hacia el equilibrio).
 
+### Ejemplo 5: Sistema masa-muelle
+
 Un ejemplo clásico de oscilación es la dinámica de un sistema masa-muelle:
 
-#### 1. Definición del sistema
+**Definición del sistema**
 
 El sistema masa-muelle ({numref}`fig-masa-muelle`) se compone de una masa $m$ conectada a un resorte de constante elástica $\kappa$. Consideremos un muelle vertical con un extremo fijo y la masa $m$ suspendida en su extremo libre.
 
@@ -379,11 +383,11 @@ Sistema masa-muelle en la posición de equilibrio con las dos fuerzas que interv
 
 Definimos $y(t)$ como la posición de la masa, con el origen $y = 0$ donde el muelle sin la masa no está estirado y sentido positivo hacia abajo. $l_0$ representa la elongación del muelle en la posición de equilibrio.
 
-#### 2. Identificación de las fuerzas
+**Identificación de las fuerzas**
 
 Las fuerzas que actúan sobre la masa son la fuerza de gravedad, $F_g = mg$, y la fuerza restauradora del muelle, $F_k = -\kappa y$.
 
-#### 3. Ecuación de movimiento
+**Ecuación de movimiento**
 
 Aplicando la segunda ley de Newton:
 
@@ -391,7 +395,7 @@ $$
 m\frac{d^2y}{dt^2} = F_g + F_k = mg - \kappa y
 $$ (eq:muelle-newton)
 
-#### 4. Simplificación y solución
+**Simplificación y solución**
 
 En la posición de equilibrio ($y = l_0$), la aceleración es cero, por lo que $mg = \kappa l_0$. Sustituyendo en la ecuación de movimiento:
 
@@ -497,4 +501,21 @@ Es importante tener en cuenta las **limitaciones** de la analogía gravitatoria:
 - No tiene en cuenta fuerzas no conservativas, como la fricción, que pueden disipar energía y modificar el movimiento del sistema.
 - En sistemas no inerciales, donde actúan fuerzas ficticias como la fuerza de Coriolis, la analogía no es directamente aplicable sin modificaciones.
 
-En resumen, la energía potencial, los mapas de energía potencial y la analogía gravitatoria son herramientas conceptuales poderosas para comprender el comportamiento de una amplia gama de sistemas físicos. Sin embargo, es crucial ser conscientes de sus limitaciones y considerar la influencia de otros factores, como las fuerzas no conservativas y los sistemas de referencia no inerciales.
+En resumen, la energía potencial, los mapas de energía potencial y la analogía gravitatoria son herramientas conceptuales poderosas para comprender el comportamiento de una amplia gama de sistemas físicos. Sin embargo, es crucial ser conscientes de sus limitaciones y considerar la influencia de otros factores, como las fuerzas no conservativas y los sistemas de referencia no inerciales, para obtener una descripción completa del movimiento del sistema.
+
+```{admonition} Resumen del tema 1
+
+**Síntesis de Conceptos**
+
+En este primer tema de la asignatura, hemos explorado el concepto de equilibrio como el punto de referencia indispensable para analizar cualquier sistema dinámico. Hemos visto que, más allá de la idea intuitiva de "ausencia de movimiento", el equilibrio es un estado estacionario donde una propiedad deja de evolucionar en el tiempo. Al aterrizar esta idea en la mecánica, hemos comprendido que la magnitud que realmente está en equilibrio es la velocidad, ya que cuando la fuerza neta es cero, esta permanece constante. Esto nos ha permitido ver que un objeto en reposo es solo un caso particular de este fenómeno más amplio.
+
+A lo largo del capítulo, hemos aprendido a clasificar el equilibrio según su estabilidad, analizando cómo responde un sistema ante pequeñas perturbaciones. A través de analogías visuales, como una pelota en un cuenco o en la cima de una colina, hemos diferenciado entre el equilibrio estable (donde el sistema tiende a regresar a su estado inicial), el inestable (donde la perturbación se amplifica) y el indiferente. Esta distinción ha sido fundamental para conectar la geometría de los mapas de energía potencial con la dinámica: los mínimos de energía actúan como valles de estabilidad, mientras que los máximos actúan como cumbres inestables.
+
+Para simplificar el estudio de sistemas complejos, hemos introducido los grados de libertad, aprendiendo a identificar el número mínimo de coordenadas independientes necesarias para describir un sistema. Hemos visto cómo las ligaduras, como la longitud constante de la cuerda en un péndulo, nos permiten reducir el número de variables y manejar ecuaciones de movimiento mucho más sencillas.
+
+A partir de ahí, hemos estudiado las dos grandes rutas que sigue un sistema cuando es desplazado de su equilibrio estable: el amortiguamiento y la oscilación. Mediante el ejemplo de una esfera cayendo en un fluido, hemos visto cómo las fuerzas disipativas hacen que el sistema pierda energía y busque gradualmente su condición de equilibrio. Por otro lado, hemos analizado cómo las fuerzas restauradoras, como las de un muelle, crean un movimiento repetitivo de vaivén. Finalmente, gracias a la analogía gravitatoria, hemos descubierto que cualquier potencial que tenga forma de parábola generará siempre un movimiento oscilatorio armónico.
+
+**Mapa de Conexiones**
+
+Este último hallazgo es el que nos sirve de puente hacia el resto de la asignatura. El tema 2 nos permitirá profundizar exclusivamente en el oscilador armónico simple. Estudiaremos este modelo universal como la base para entender distintos sistemas físicos antes de lanzarnos al estudio de fenómenos más complejos.
+```

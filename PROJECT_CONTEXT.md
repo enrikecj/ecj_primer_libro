@@ -1,6 +1,6 @@
 # Contexto del proyecto — Proyecto: ecj_primer_libro
-
-Última actualización: 2026-06-15T19:14:12+02:00
+ 
+Última actualización: 2026-06-16T18:05:28+02:00
 
 Este archivo es el punto de referencia compartido para trabajar en el proyecto desde distintos ordenadores. Actualiza la sección "Última actualización" con una marca de tiempo ISO en cada cambio.
 
@@ -15,6 +15,7 @@ Este archivo es el punto de referencia compartido para trabajar en el proyecto d
 **2. Decisiones de arquitectura tomadas y por qué**
 
 - Uso de Jupyter Book / TeachBooks como framework principal: permite generación HTML + PDF y compatibilidad con notebooks.
+- Menú lateral izquierdo: Se mantendrá solo para capítulos/archivos (comportamiento por defecto de Jupyter Book). Para mostrar secciones en la izquierda habría que dividir los archivos .md en múltiples archivos más pequeños y anidarlos en `_toc.yml`, pero se ha decidido descartar esta implementación por el momento.
 - Flujo multi-idioma: cada idioma tiene su `_config_<lang>.yml`, `_toc_<lang>.yml` y carpeta `book/<lang>/` para mantener paridad entre idiomas.
 - Diagrams: fuentes en `diagram_sources/` y salida en `book/_static/generated/diagrams/` para evitar dependencia en tiempo de compilación (Kroki renderizado previamente) y garantizar compatibilidad PDF.
 - Assets: PNG/JPG/SVG como formatos canónicos; WebP/GIF solo como mejora si existen fallbacks PNG/JPG para PDF.
@@ -32,6 +33,7 @@ Este archivo es el punto de referencia compartido para trabajar en el proyecto d
 - Vinculadas e insertadas las figuras del Tema 1 (ubicadas en `recursos_curso/Tema 1/media`) en la carpeta correspondiente de estáticos del libro (`book/_static/`), añadiendo etiquetas (`fig-`) para su correcta citación en el texto.
 - Añadidas y etiquetadas las ecuaciones en LaTeX con su formato correspondiente (`eq-`) y se cuidó de insertar los espacios apropiados antes de los vectores unitarios.
 - Modificado el motor de bibliografía de Jupyter Book en los archivos de configuración (`_config_es.yml` y `_config_en.yml`) para usar el estilo `unsrt`, consiguiendo que las referencias bibliográficas se listen por orden de aparición en lugar de alfabéticamente.
+- Añadida caché para `.venv/tools` en el flujo de GitHub Actions (`.github/workflows/deploy.yml`) para evitar interrupciones y fallos de conexión (timeouts) con los espejos de CTAN durante la instalación de la toolchain PDF.
 
 **4. Próximos pasos priorizados**
 
@@ -59,8 +61,11 @@ Este archivo es el punto de referencia compartido para trabajar en el proyecto d
 - [x] Ejecutar `optimize_static_assets.py --check` y corregir fallbacks faltantes para GIFs/WebP.
 - [x] Remover/convertir `DEBUG` prints a `logging.debug()` (ocultados tras `--verbose`).
 - [x] Actualizar workflow de CI para ejecutar tests y renderizar diagramas antes del build.
+- [x] Corregir doble numeración en las secciones de Tema 1 (eliminando numeración manual de los encabezados `##` en ambos idiomas).
+- [x] Aplanar las subsecciones internas de las secciones 1.6, 1.8 y 1.9 convirtiendo los encabezados `####` a negrita (`**`) para quitarlos del índice.
+- [x] Introducir la subsección `### Ejemplo 5: Sistema masa-muelle` / `### Example 5: Mass-spring system` en la sección 1.9.
 - [ ] Añadir los créditos a Teachbooks y al proyecto “Elaboración de libros electrónicos”.
-- [ ] Añadir al final de cada capítulo un resumen (puede elaborarlo NotebookLM).
+- [x] Añadir al final de cada capítulo un resumen (puede elaborarlo NotebookLM) (Hecho para Tema 1).
 - [ ] Añadir enunciados de problemas al final de cada capítulo.
 
 - [x] Evaluar si cambiar el estilo de referencias (`plain`, `unsrtalpha`) para corregir la etiqueta de `Phe22` si se decide intervenir. (Cambiado a `unsrt` para ordenar por aparición).
@@ -69,9 +74,9 @@ Este archivo es el punto de referencia compartido para trabajar en el proyecto d
 - [x] Separar visualmente las ecuaciones en las líneas “Equilibrio en x” y “Equilibrio en y” del apartado 3 del ejemplo 1, para que queden menos pegadas a los dos puntos.
 - [x] Añadir un pequeño espacio antes de los vectores unitarios en las ecuaciones donde aparecen, para mejorar la legibilidad.
 - [x] Añadir el Tema 1 en español e inglés y estructurarlo según el índice de `Índice.docx`.
-- [ ] Dividir el capítulo 1 en secciones cuando se añada más material: pendiente de definición de secciones.
-- [ ] Revisar la numeración de las subsecciones, especialmente en el caso de los ejemplos.
-- [ ] Ver si se pueden incluir las subsecciones y no solo los capítulos en el menú lateral izquierdo.
+- [x] Dividir el capítulo 1 en secciones cuando se añada más material: pendiente de definición de secciones.
+- [x] Revisar la numeración de las subsecciones, especialmente en el caso de los ejemplos.
+- [x] Ver si se pueden incluir las subsecciones y no solo los capítulos en el menú lateral izquierdo (Descartado: requiere dividir los archivos .md; documentado en decisiones de arquitectura).
 - [ ] Recordatorio: Solicitar a Gemini que realice una auditoría completa de las figuras del libro (comprobar fallbacks, resoluciones y visualización).
 - *2026-06-15T15:46:00Z (Agente): Se han eliminado los `DEBUG` prints de `scripts/build_book.py`.*
 - *2026-06-15T15:50:00Z (Agente): Se han modificado las referencias en `intro.md` para usar `{cite:p}` y la bibliografía a `:cited:`.*
@@ -79,7 +84,10 @@ Este archivo es el punto de referencia compartido para trabajar en el proyecto d
 - *2026-06-15T18:50:00Z (Agente): Añadido el Tema 1 estructurado en español e inglés, enlazando figuras y ecuaciones, y ordenando la bibliografía por aparición.*
 - *2026-06-15T18:58:00Z (Agente): Añadidas tareas sobre la revisión de numeración de subsecciones/ejemplos y la inclusión de subsecciones en la barra lateral.*
 - *2026-06-15T19:06:00Z (Agente): Añadida tarea recordatorio para realizar auditoría de figuras con Gemini.*
-
+- *2026-06-15T19:46:34Z (Agente): Añadida caché de LaTeX en GitHub Actions (.github/workflows/deploy.yml) para mitigar timeouts de CTAN.*
+- *2026-06-16T17:40:00Z (Agente): Eliminada numeración manual de `##`, aplanados subencabezados `####` a negrita en 1.6, 1.8 y 1.9, y añadido Ejemplo 5.*
+- *2026-06-16T17:50:28Z (Agente): Descartada la idea de incluir subsecciones en el menú izquierdo (requeriría dividir los archivos .md); actualizado en decisiones de arquitectura.*
+- *2026-06-16T18:05:28Z (Agente): Añadida "Síntesis de Conceptos" (resumen y mapa de conexiones) al final del Tema 1 en español e inglés.*
 
 **7. Notas editorial / de formato**
 

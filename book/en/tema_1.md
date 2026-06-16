@@ -55,11 +55,11 @@ Scheme of the forces acting on a simple pendulum.
 
 We will see how to deduce it mathematically step by step:
 
-#### Identify the forces:
+**Identify the forces:**
 
 The forces acting on the mass of the pendulum (See {numref}`fig-pendulo-fuerzas`) are the tension $T$ of the string and the weight $\vec{F}_g = -mg \hat{e}_y$ (where the minus sign indicates that it points in the negative vertical direction).
 
-#### Project the forces onto the axes:
+**Project the forces onto the axes:**
 
 The forces are decomposed into their horizontal (axis $x$) and vertical (axis $y$) components.
 
@@ -70,18 +70,18 @@ $$
 \vec{F}_g = -mg\,\hat{e}_y
 $$ (eq:Fg)
 
-#### Apply the equilibrium condition:
+**Apply the equilibrium condition:**
 
 For the velocity to be constant, the acceleration must be zero. According to Newton's second law, this implies that the sum of the forces on each axis must be zero.
 
 - **Equilibrium in x**: $\quad -T \sin \theta = 0$
 - **Equilibrium in y**: $\quad T \cos \theta - mg = 0$
 
-#### Solve the equations:
+**Solve the equations:**
 
 The equation for the horizontal axis implies that $\sin \theta = 0$, which means that $\theta = 0$ (vertical position). Substituting this condition into the equation for axis $y$, we obtain $T = mg$, which means that the tension equals the weight at the equilibrium position.
 
-#### Conclusion:
+**Conclusion:**
 
 > The equilibrium condition in a simple pendulum is satisfied when the angle $\theta$ is zero, corresponding to the lower vertical position. At this point, the string tension equals the weight and, in addition to having no acceleration, the velocity is zero because otherwise the pendulum angle would change and it would cease to be in equilibrium.
 
@@ -105,6 +105,8 @@ Forces acting on a sphere in free fall with drag: the weight $F_g = -mg$ downwar
 ```
 
 Try to find the equilibrium condition in this case. We will solve it step by step in the [Damping](sec-amortiguamiento) section.
+
+## Other types of equilibrium
 
 ### Example 3. Thermal equilibrium
 
@@ -208,9 +210,9 @@ In general, the number of degrees of freedom equals the number of system variabl
 
 Identifying degrees of freedom is crucial for simplifying the analysis. Using independent coordinates that respect the system's constraints makes the equations of motion more manageable.
 
-For example, when analysing the motion of a simple pendulum, it is much easier to work with a single equation for the angle $\theta$ than with two coupled equations for $x$ and $y$. Let us see how:
+Let us return to example 2 and analyse the motion of the simple pendulum (see {numref}`fig-pendulo-fuerzas`). In this case, it is much easier to work with a single equation for the angle $\theta$ than with two coupled equations for $x$ and $y$. Let us see how:
 
-#### 1. Equations of motion in $x$ and $y$
+**Equations of motion in $x$ and $y$**
 
 From the forces involved in the problem ({eq}`eq:FT` and {eq}`eq:Fg`) we can write the equations of motion:
 
@@ -222,7 +224,7 @@ $$
 m\frac{d^2y}{dt^2} = -mg + T\cos\theta
 $$ (eq:pendulo-y)
 
-#### 2. Change to polar coordinates $(l,\, \theta)$
+**Change to polar coordinates $(l,\, \theta)$**
 
 Since the relationship between the two coordinate systems is $x = l\sin\theta$, $y = l(1 - \cos\theta)$, differentiating we get:
 
@@ -242,7 +244,7 @@ $$
 \frac{d^2y}{dt^2} = l\cos\theta\left(\frac{d\theta}{dt}\right)^2 + l\sin\theta\,\frac{d^2\theta}{dt^2}
 $$ (eq:d2y)
 
-#### 3. Pendulum equation in the coordinate $\theta$
+**Pendulum equation in the coordinate $\theta$**
 
 Substituting {eq}`eq:d2x` and {eq}`eq:d2y` into {eq}`eq:pendulo-x` and {eq}`eq:pendulo-y`, multiplying the first by $\cos\theta$ and the second by $\sin\theta$, and adding them, the tension $T$ is eliminated. After simplification:
 
@@ -303,11 +305,11 @@ where $C$ is a positive constant. The general solution of this type of different
 
 To better understand damping, we will study Example 2 step by step: the free fall of a sphere in a fluid (see {numref}`fig-esfera-caida`).
 
-#### 1. Problem definition
+**Problem definition**
 
 An object falls through a fluid without causing turbulence. The forces acting on it are gravity and the fluid drag force. We neglect buoyancy.
 
-#### 2. Equation of motion
+**Equation of motion**
 
 The two forces are gravity, $F_g = -mg$, and drag, $F_a = -bv$. The equation of motion is:
 
@@ -315,7 +317,7 @@ $$
 m\frac{dv}{dt} = F_g + F_a = -mg - bv
 $$ (eq:caida-libre)
 
-#### 3. Equilibrium condition
+**Equilibrium condition**
 
 The equilibrium velocity $v_{eq}$ is reached when the acceleration is zero, $dv/dt = 0$. Solving:
 
@@ -325,7 +327,7 @@ $$ (eq:vel-eq)
 
 This means that after a certain time, the object will fall at a constant velocity $v_{eq}$, determined by the balance between gravity and drag.
 
-#### 4. Solution of the equation of motion
+**Solution of the equation of motion**
 
 We solve {eq}`eq:caida-libre` by separation of variables:
 
@@ -341,7 +343,7 @@ $$ (eq:vel-tiempo)
 
 where $v_0 = v(0)$ is the initial velocity.
 
-#### 5. Analysis of the solution
+**Analysis of the solution**
 
 The solution {eq}`eq:vel-tiempo` describes the behaviour of a damped system: the velocity of the object approaches the equilibrium velocity {eq}`eq:vel-eq` exponentially. The **time constant** $\tau = m/b$ determines the rate of that process. The larger the object's mass or the smaller the damping constant, the larger $\tau$ and the more slowly the object reaches equilibrium.
 
@@ -362,9 +364,11 @@ where $f(\eta - \eta_{eq})$ describes the restoring force. For oscillations to o
 - $f(\eta - \eta_{eq}) = 0$ if $\eta = \eta_{eq}$: the restoring force is zero at equilibrium.
 - $f(\eta - \eta_{eq}) < 0$ if $\eta > \eta_{eq}$: the force pushes the variable downward (towards equilibrium).
 
+### Example 5: Mass-spring system
+
 A classic example of oscillation is the dynamics of a mass-spring system:
 
-#### 1. System definition
+**System definition**
 
 The mass-spring system ({numref}`fig-masa-muelle`) consists of a mass $m$ connected to a spring with elastic constant $\kappa$. Consider a vertical spring with one end fixed and the mass $m$ suspended from its free end.
 
@@ -379,11 +383,11 @@ Mass-spring system at equilibrium with the two forces involved. The $y$ axis poi
 
 We define $y(t)$ as the position of the mass, with origin $y = 0$ where the unstretched spring rests and positive direction downwards. $l_0$ is the elongation of the spring at equilibrium.
 
-#### 2. Identification of forces
+**Identification of forces**
 
 The forces acting on the mass are gravity, $F_g = mg$, and the spring restoring force, $F_k = -\kappa y$.
 
-#### 3. Equation of motion
+**Equation of motion**
 
 Applying Newton's second law:
 
@@ -391,7 +395,7 @@ $$
 m\frac{d^2y}{dt^2} = F_g + F_k = mg - \kappa y
 $$ (eq:muelle-newton)
 
-#### 4. Simplification and solution
+**Simplification and solution**
 
 At the equilibrium position ($y = l_0$), acceleration is zero, so $mg = \kappa l_0$. Substituting into the equation of motion:
 
@@ -498,3 +502,20 @@ It is important to bear in mind the **limitations** of the gravitational analogy
 - In non-inertial reference frames, where fictitious forces such as the Coriolis force act, the analogy is not directly applicable without modifications.
 
 In summary, potential energy, potential energy maps and the gravitational analogy are powerful conceptual tools for understanding the behaviour of a wide range of physical systems. However, it is crucial to be aware of their limitations and to consider the influence of other factors, such as non-conservative forces and non-inertial reference frames.
+
+```{admonition} Chapter 1 Summary
+
+**Synthesis of Concepts**
+
+In this first chapter of the course, we have explored the concept of equilibrium as the indispensable reference point for analysing any dynamic system. We have seen that, beyond the intuitive idea of "absence of movement", equilibrium is a stationary state where a property ceases to evolve in time. By grounding this idea in mechanics, we have understood that the magnitude that is actually in equilibrium is velocity, since when the net force is zero, it remains constant. This has allowed us to see that an object at rest is only a particular case of this broader phenomenon.
+
+Throughout the chapter, we have learned to classify equilibrium according to its stability, analysing how a system responds to small perturbations. Through visual analogies, such as a ball in a bowl or on top of a hill, we have differentiated between stable equilibrium (where the system tends to return to its initial state), unstable equilibrium (where the perturbation is amplified) and neutral equilibrium. This distinction has been fundamental to connect the geometry of potential energy maps with dynamics: energy minima act as valleys of stability, while maxima act as unstable peaks.
+
+To simplify the study of complex systems, we have introduced degrees of freedom, learning to identify the minimum number of independent coordinates necessary to fully describe a system. We have seen how constraints, such as the constant length of the string in a pendulum, allow us to reduce the number of variables and handle much simpler equations of motion.
+
+From there, we have studied the two main routes a system follows when displaced from its stable equilibrium: damping and oscillation. Through the example of a sphere falling in a fluid, we have seen how dissipative forces cause the system to lose energy and gradually seek its equilibrium condition. On the other hand, we have analysed how restoring forces, like those of a spring, create a repetitive back-and-forth movement. Finally, thanks to the gravitational analogy, we have discovered that any potential with a parabolic shape will always generate a simple harmonic oscillatory motion.
+
+**Connection Map**
+
+This last finding serves as our bridge to the rest of the course. Chapter 2 will allow us to delve exclusively into the simple harmonic oscillator. We will study this universal model as the basis for understanding different physical systems before launching into the study of more complex phenomena.
+```
