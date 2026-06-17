@@ -1,4 +1,4 @@
-# Chapter 1. Equilibrium, damping and oscillations
+# Equilibrium, damping and oscillations
 
 ## Equilibrium
 
@@ -40,7 +40,8 @@ Regarding position, it is not a property that has to be in equilibrium when we t
 
 Let us look at a few examples of equilibrium in physics:
 
-### Example 1. Equilibrium condition of a simple pendulum
+````{admonition} Example 1. Equilibrium condition of a simple pendulum
+:class: example
 
 The equilibrium condition in a pendulum occurs when the pendulum's velocity is constant. This happens when the pendulum is at rest in its lower vertical position (zero angle with respect to the vertical).
 
@@ -84,8 +85,10 @@ The equation for the horizontal axis implies that $\sin \theta = 0$, which means
 **Conclusion:**
 
 > The equilibrium condition in a simple pendulum is satisfied when the angle $\theta$ is zero, corresponding to the lower vertical position. At this point, the string tension equals the weight and, in addition to having no acceleration, the velocity is zero because otherwise the pendulum angle would change and it would cease to be in equilibrium.
+````
 
-### Example 2. Equilibrium condition of a sphere in free fall with drag
+````{admonition} Example 2. Equilibrium condition of a sphere in free fall with drag
+:class: example
 
 In the case of a spherical object falling through a fluid with drag, the mechanical equilibrium is also given by the balance of forces acting on the sphere. To simplify, let us assume the medium is air, whose density is much smaller than that of the sphere, so we can neglect the buoyancy force. In this case, the two forces acting on the object are the weight and the drag force (see {numref}`fig-esfera-caida`), which accounts for the effect of friction. Assuming the fall velocity is not too large, we can use Stokes' law, which states that the drag force on a sphere is proportional to the velocity $v$:
 
@@ -105,10 +108,14 @@ Forces acting on a sphere in free fall with drag: the weight $F_g = -mg$ downwar
 ```
 
 Try to find the equilibrium condition in this case. We will solve it step by step in the [Damping](sec-amortiguamiento) section.
+````
 
 ## Other types of equilibrium
 
-### Example 3. Thermal equilibrium
+As mentioned before, the concept of equilibrium also exists outside mechanics. Let's look at two examples of this, one of thermal equilibrium and another in an electrical circuit.
+
+````{admonition} Example 3. Thermal equilibrium
+:class: example
 
 As we know, two objects in contact are in thermal equilibrium if there is no net transfer of thermal energy between them. Consider the geometry shown in {numref}`fig-equilibrio-termico`. The equation governing the dynamics of the system is:
 
@@ -126,8 +133,10 @@ align: center
 ---
 Two objects at different temperatures with a junction of area $A$, length $L$ and thermal conductivity $k$.
 ```
+````
 
-### Example 4. Equilibrium in an electrical circuit
+````{admonition} Example 4. Equilibrium in an electrical circuit
+:class: example
 
 Consider a series RL circuit like the one in {numref}`fig-circuito-rl`, with a resistor and an inductor, in which we want to find the equilibrium condition for the current intensity.
 
@@ -141,6 +150,7 @@ Series RL circuit.
 ```
 
 How would you find the equilibrium condition in this case?
+````
 
 (sec-puntos-equilibrio)=
 ## Equilibrium points
@@ -210,6 +220,9 @@ In general, the number of degrees of freedom equals the number of system variabl
 
 Identifying degrees of freedom is crucial for simplifying the analysis. Using independent coordinates that respect the system's constraints makes the equations of motion more manageable.
 
+```{admonition} Derivation of the pendulum equation
+:class: example
+
 Let us return to example 2 and analyse the motion of the simple pendulum (see {numref}`fig-pendulo-fuerzas`). In this case, it is much easier to work with a single equation for the angle $\theta$ than with two coupled equations for $x$ and $y$. Let us see how:
 
 **Equations of motion in $x$ and $y$**
@@ -261,6 +274,7 @@ $$
 $$ (eq:pendulo-lineal)
 
 This linear second-order differential equation is much simpler to solve analytically.
+```
 
 In multidimensional systems with several degrees of freedom, the concept of equilibrium point generalises and we can obtain not only equilibrium points, but also equilibrium curves, equilibrium surfaces, etc. An example is the water surface when a ship is floating: the ship is in equilibrium at any point on that surface, regardless of its horizontal position. This is a **plane of equilibrium**, a two-dimensional equilibrium condition.
 
@@ -302,6 +316,9 @@ f(\eta) = -C\left(\eta - \eta_{eq}\right)
 $$ (eq:amort-lineal)
 
 where $C$ is a positive constant. The general solution of this type of differential equation is a decreasing exponential, meaning the variable approaches the equilibrium value asymptotically over time.
+
+```{admonition} Analysis of damping in fluids
+:class: example
 
 To better understand damping, we will study Example 2 step by step: the free fall of a sphere in a fluid (see {numref}`fig-esfera-caida`).
 
@@ -346,6 +363,7 @@ where $v_0 = v(0)$ is the initial velocity.
 **Analysis of the solution**
 
 The solution {eq}`eq:vel-tiempo` describes the behaviour of a damped system: the velocity of the object approaches the equilibrium velocity {eq}`eq:vel-eq` exponentially. The **time constant** $\tau = m/b$ determines the rate of that process. The larger the object's mass or the smaller the damping constant, the larger $\tau$ and the more slowly the object reaches equilibrium.
+```
 
 (sec-oscilaciones)=
 ## Oscillations
@@ -364,7 +382,8 @@ where $f(\eta - \eta_{eq})$ describes the restoring force. For oscillations to o
 - $f(\eta - \eta_{eq}) = 0$ if $\eta = \eta_{eq}$: the restoring force is zero at equilibrium.
 - $f(\eta - \eta_{eq}) < 0$ if $\eta > \eta_{eq}$: the force pushes the variable downward (towards equilibrium).
 
-### Example 5: Mass-spring system
+````{admonition} Example 5: Mass-spring system
+:class: example
 
 A classic example of oscillation is the dynamics of a mass-spring system:
 
@@ -420,6 +439,7 @@ $$ (eq:omega0)
 - $\varphi$ is the **initial phase**, which defines the position of the mass at $t = 0$.
 
 The constants $A$ and $\varphi$ are determined from the initial conditions of the problem (initial position and velocity of the mass).
+````
 
 ```{admonition} Summary: two routes to equilibrium
 :class: tip
@@ -503,6 +523,7 @@ It is important to bear in mind the **limitations** of the gravitational analogy
 
 In summary, potential energy, potential energy maps and the gravitational analogy are powerful conceptual tools for understanding the behaviour of a wide range of physical systems. However, it is crucial to be aware of their limitations and to consider the influence of other factors, such as non-conservative forces and non-inertial reference frames.
 
+<!--
 ```{admonition} Chapter 1 Summary
 
 **Synthesis of Concepts**
@@ -519,3 +540,4 @@ From there, we have studied the two main routes a system follows when displaced 
 
 This last finding serves as our bridge to the rest of the course. Chapter 2 will allow us to delve exclusively into the simple harmonic oscillator. We will study this universal model as the basis for understanding different physical systems before launching into the study of more complex phenomena.
 ```
+-->

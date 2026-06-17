@@ -1,4 +1,4 @@
-# Tema 1. Equilibrio, amortiguamiento y oscilaciones
+# Equilibrio, amortiguamiento y oscilaciones
 
 ## Introducción al equilibrio
 
@@ -40,7 +40,8 @@ En cuanto a la posición, no es una propiedad que tenga que estar en equilibrio 
 
 Veamos unos cuantos ejemplos de equilibrio en física:
 
-### Ejemplo 1. Condición de equilibrio de un péndulo simple
+````{admonition} Ejemplo 1. Condición de equilibrio de un péndulo simple
+:class: example
 
 La condición de equilibrio en un péndulo se produce cuando la velocidad del péndulo es constante. Esto ocurre cuando el péndulo está en reposo en su posición vertical inferior (ángulo cero con respecto a la vertical).
 
@@ -84,8 +85,10 @@ La ecuación para el eje horizontal implica que $\sin \theta = 0$, lo que signif
 **Conclusión:**
 
 > La condición de equilibrio en un péndulo simple se cumple cuando el ángulo $\theta$ es cero, lo que corresponde a la posición vertical inferior. En este punto, la tensión de la cuerda es igual al peso y, además de no haber aceleración, la velocidad debe ser nula para mantener la condición de equilibrio, ya que si no lo fuera variaría el ángulo del péndulo y dejaría de estar en equilibrio.
+````
 
-### Ejemplo 2. Condición de equilibrio de una esfera en caída libre con rozamiento
+````{admonition} Ejemplo 2. Condición de equilibrio de una esfera en caída libre con rozamiento
+:class: example
 
 En el caso de un objeto esférico que cae en un fluido con rozamiento, el equilibrio mecánico también viene dado por la compensación de las fuerzas que actúan sobre la esfera. Para simplificar las cosas, pensemos que el medio en el que se produce la caída es el aire y que, al ser su densidad mucho menor que la de la esfera, podemos despreciar el empuje. En ese caso, las dos fuerzas que actúan sobre el objeto son el peso y la fuerza de arrastre (Ver {numref}`fig-esfera-caida`), que da cuenta del efecto del rozamiento. Dependiendo de las características del fluido y si la velocidad de caída no es muy grande, podemos asumir que la fuerza de arrastre es proporcional a la velocidad $v$ (ley de Stokes). Concretamente, para una esfera la fuerza de arrastre es:
 
@@ -105,10 +108,14 @@ Fuerzas que actúan sobre una esfera en caída libre con rozamiento: el peso $F_
 ```
 
 Puedes intentar encontrar la condición de equilibrio en este caso. En la sección de [Amortiguamiento](sec-amortiguamiento) lo resolveremos paso a paso.
+````
 
 ## Otros tipos de equilibrio
 
-### Ejemplo 3. Equilibrio térmico
+Como hemos mencionado antes, el concepto de equilibrio también existe fuera de la mecánica. Vamos a ver dos ejemplos de ello, uno de equilibrio térmico y otro en un circuito eléctrico.
+
+````{admonition} Ejemplo 3. Equilibrio térmico
+:class: example
 
 Como sabemos, dos objetos en contacto están en equilibrio térmico si no hay transferencia de energía térmica entre ellos. Supongamos una geometría como la que se muestra en la {numref}`fig-equilibrio-termico`. La ecuación que rige la dinámica del sistema es:
 
@@ -126,8 +133,10 @@ align: center
 ---
 Dos objetos a diferente temperatura con una zona de unión de área $A$, longitud $L$ y conductividad térmica $k$.
 ```
+````
 
-### Ejemplo 4. Equilibrio en un circuito eléctrico
+````{admonition} Ejemplo 4. Equilibrio en un circuito eléctrico
+:class: example
 
 Pensemos por ejemplo en un circuito RL en serie como el de la {numref}`fig-circuito-rl`, con una resistencia y una bobina, en el que queremos encontrar la condición de equilibrio de la intensidad de corriente.
 
@@ -141,6 +150,7 @@ Circuito RL en serie.
 ```
 
 ¿Cómo hallarías esa condición de equilibrio?
+````
 
 (sec-puntos-equilibrio)=
 ## Puntos de equilibrio
@@ -210,6 +220,9 @@ En general, el número de grados de libertad será igual al número de variables
 
 La identificación de los grados de libertad es crucial para simplificar el análisis. Al utilizar las coordenadas independientes que respetan las restricciones del sistema, las ecuaciones de movimiento se vuelven más manejables.
 
+```{admonition} Deducción de la ecuación del péndulo
+:class: example
+
 Retomemos el ejemplo 2 y analicemos el movimiento del péndulo simple (ver {numref}`fig-pendulo-fuerzas`). En este caso es mucho más fácil trabajar con una sola ecuación para el ángulo $\theta$ que con dos ecuaciones acopladas para $x$ e $y$. Veámoslo:
 
 **Ecuaciones de movimiento en $x$ e $y$**
@@ -261,6 +274,7 @@ $$
 $$ (eq:pendulo-lineal)
 
 Esta ecuación diferencial lineal de segundo orden es mucho más sencilla de resolver analíticamente.
+```
 
 En los sistemas multidimensionales en los cuales tenemos varios grados de libertad, el concepto de punto de equilibrio se generaliza y podemos obtener no solo puntos de equilibrio, sino también curvas de equilibrio, superficies de equilibrio, etc. Un ejemplo es la superficie del agua cuando tenemos un barco flotando: el barco está en equilibrio en cualquier punto de esa superficie, independientemente de su posición horizontal. En este caso estaríamos hablando de un **plano de equilibrio**, de una condición de equilibrio bidimensional.
 
@@ -302,6 +316,9 @@ f(\eta) = -C\left(\eta - \eta_{eq}\right)
 $$ (eq:amort-lineal)
 
 siendo $C$ una constante positiva. La solución general para este tipo de ecuación diferencial es una función exponencial decreciente, lo que significa que la variable se acerca asintóticamente al valor de equilibrio con el tiempo.
+
+```{admonition} Análisis del amortiguamiento en fluidos
+:class: example
 
 Para entender mejor el concepto de amortiguamiento, vamos a estudiar paso a paso el Ejemplo 2: la caída libre de un objeto esférico en un fluido (ver {numref}`fig-esfera-caida`).
 
@@ -346,6 +363,7 @@ donde $v_0 = v(0)$ es la velocidad inicial.
 **Análisis de la solución**
 
 La solución {eq}`eq:vel-tiempo` describe el comportamiento de un sistema amortiguado: la velocidad del objeto se acerca exponencialmente a la velocidad de equilibrio {eq}`eq:vel-eq`. La **constante de tiempo** $\tau = m/b$ determina la rapidez de ese proceso. Cuanto mayor sea la masa del objeto o menor sea la constante de amortiguamiento, mayor será $\tau$ y más lentamente alcanzará el objeto el equilibrio.
+```
 
 (sec-oscilaciones)=
 ## Oscilaciones
@@ -364,7 +382,8 @@ donde $f(\eta - \eta_{eq})$ describe la fuerza restauradora. Para que haya oscil
 - $f(\eta - \eta_{eq}) = 0$ si $\eta = \eta_{eq}$: la fuerza restauradora es cero en el equilibrio.
 - $f(\eta - \eta_{eq}) < 0$ si $\eta > \eta_{eq}$: la fuerza empuja la variable hacia abajo (hacia el equilibrio).
 
-### Ejemplo 5: Sistema masa-muelle
+````{admonition} Ejemplo 5: Sistema masa-muelle
+:class: example
 
 Un ejemplo clásico de oscilación es la dinámica de un sistema masa-muelle:
 
@@ -420,6 +439,7 @@ $$ (eq:omega0)
 - $\varphi$ es la **fase inicial**, que define la posición de la masa en $t = 0$.
 
 Las constantes $A$ y $\varphi$ se determinan a partir de las condiciones iniciales del problema (posición y velocidad iniciales de la masa).
+````
 
 ```{admonition} Resumen: dos rutas hacia el equilibrio
 :class: tip
@@ -503,6 +523,7 @@ Es importante tener en cuenta las **limitaciones** de la analogía gravitatoria:
 
 En resumen, la energía potencial, los mapas de energía potencial y la analogía gravitatoria son herramientas conceptuales poderosas para comprender el comportamiento de una amplia gama de sistemas físicos. Sin embargo, es crucial ser conscientes de sus limitaciones y considerar la influencia de otros factores, como las fuerzas no conservativas y los sistemas de referencia no inerciales, para obtener una descripción completa del movimiento del sistema.
 
+<!--
 ```{admonition} Resumen del tema 1
 
 **Síntesis de Conceptos**
@@ -519,3 +540,4 @@ A partir de ahí, hemos estudiado las dos grandes rutas que sigue un sistema cua
 
 Este último hallazgo es el que nos sirve de puente hacia el resto de la asignatura. El tema 2 nos permitirá profundizar exclusivamente en el oscilador armónico simple. Estudiaremos este modelo universal como la base para entender distintos sistemas físicos antes de lanzarnos al estudio de fenómenos más complejos.
 ```
+-->

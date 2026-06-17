@@ -1,6 +1,6 @@
 # Contexto del proyecto — Proyecto: ecj_primer_libro
  
-Última actualización: 2026-06-16T18:05:28+02:00
+Última actualización: 2026-06-17T17:11:00+02:00
 
 Este archivo es el punto de referencia compartido para trabajar en el proyecto desde distintos ordenadores. Actualiza la sección "Última actualización" con una marca de tiempo ISO en cada cambio.
 
@@ -21,6 +21,24 @@ Este archivo es el punto de referencia compartido para trabajar en el proyecto d
 - Assets: PNG/JPG/SVG como formatos canónicos; WebP/GIF solo como mejora si existen fallbacks PNG/JPG para PDF.
 - Automatización: scripts en `scripts/` para tareas repetibles (build, preview, export PDF, render diagrams, optimización assets).
 - Numeración HTML de ecuaciones: se inyecta un script en `_static/custom.js` que captura el número del capítulo (`parts` numeradas en `_toc.yml`) y formatea MathJax para que la web emule la numeración del PDF `(1.1)`.
+- **Regla de anidamiento MyST para figuras dentro de admonitions**: cuando un `{admonition}` contiene una directiva `{figure}`, el bloque exterior debe tener MÁS backticks que el interior. El patrón correcto es:
+  ```
+  ````{admonition} Título    ← 4 backticks (exterior)
+  :class: example
+  
+  Texto...
+  
+  ```{figure} ruta/imagen.png   ← 3 backticks (interior)
+  ---
+  ...
+  ---
+  Pie de figura.
+  ```
+  
+  Más texto dentro del recuadro...
+  ````                           ← cierra con 4 backticks
+  ```
+  Si se invierte el orden (admonition con 3, figure con 4), el parser de MyST cierra el admonition en cuanto encuentra el cierre de 4 backticks de la figure, cortando el bloque prematuramente.
 
 **3. Tareas completadas en la última sesión**
 
@@ -34,6 +52,17 @@ Este archivo es el punto de referencia compartido para trabajar en el proyecto d
 - Añadidas y etiquetadas las ecuaciones en LaTeX con su formato correspondiente (`eq-`) y se cuidó de insertar los espacios apropiados antes de los vectores unitarios.
 - Modificado el motor de bibliografía de Jupyter Book en los archivos de configuración (`_config_es.yml` y `_config_en.yml`) para usar el estilo `unsrt`, consiguiendo que las referencias bibliográficas se listen por orden de aparición en lugar de alfabéticamente.
 - Añadida caché para `.venv/tools` en el flujo de GitHub Actions (`.github/workflows/deploy.yml`) para evitar interrupciones y fallos de conexión (timeouts) con los espejos de CTAN durante la instalación de la toolchain PDF.
+
+**Sesión 2026-06-17: Refactorización estructural de tema_1.md**
+
+- Ocultado el bloque «Resumen del tema 1» en `es/tema_1.md` y `en/tema_1.md` usando comentarios HTML (`<!-- ... -->`), para que no aparezca en el libro compilado pero siga accesible en el fuente por si se quiere recuperar.
+- Refactorización completa de la jerarquía de `tema_1.md` (ambos idiomas):
+  - Eliminada la redundancia del H1 (`# Tema 1. Equilibrio...` → `# Equilibrio...`).
+  - Convertidos todos los ejemplos numerados (`### Ejemplo N`) en bloques `{admonition}` con `:class: example`, eliminando los encabezados H3.
+  - Añadido párrafo introductorio en la sección «Otros tipos de equilibrio» antes de los bloques de los Ejemplos 3 y 4.
+  - Envuelta la deducción analítica del péndulo (sección 1.6) en un bloque `{admonition}` titulado «Deducción de la ecuación del péndulo».
+  - Envuelto el análisis de la caída libre en fluido (sección 1.8) en un bloque `{admonition}` titulado «Análisis del amortiguamiento en fluidos».
+- Resuelto el problema de formato cuando hay `{figure}` dentro de `{admonition}` (ver sección 7 — Regla de anidamiento MyST).
 
 **4. Próximos pasos priorizados**
 
@@ -88,6 +117,11 @@ Este archivo es el punto de referencia compartido para trabajar en el proyecto d
 - *2026-06-16T17:40:00Z (Agente): Eliminada numeración manual de `##`, aplanados subencabezados `####` a negrita en 1.6, 1.8 y 1.9, y añadido Ejemplo 5.*
 - *2026-06-16T17:50:28Z (Agente): Descartada la idea de incluir subsecciones en el menú izquierdo (requeriría dividir los archivos .md); actualizado en decisiones de arquitectura.*
 - *2026-06-16T18:05:28Z (Agente): Añadida "Síntesis de Conceptos" (resumen y mapa de conexiones) al final del Tema 1 en español e inglés.*
+- *2026-06-16T18:24:34Z (Agente): Encapsulado el resumen en un recuadro de admonición y sincronizado el texto del mapa de conexiones en inglés con la versión en español.*
+- *2026-06-16T18:26:47Z (Agente): Publicados los cambios en GitHub mediante git_helper.py.*
+- *2026-06-17T14:14:00Z (Agente): Ocultado el bloque «Resumen del tema 1» con comentarios HTML en `es/tema_1.md` y `en/tema_1.md`.*
+- *2026-06-17T14:42:00Z (Agente): Refactorización completa de `tema_1.md` (es+en): H1 simplificado, ejemplos convertidos a `{admonition}`, texto introductorio añadido en sección «Otros tipos de equilibrio», bloques de deducción del péndulo y análisis de fluidos encapsulados. Verificado con `check_multilang_integrity.py` y `check_encoding.py` sin errores.*
+- *2026-06-17T15:09:00Z (Agente): Resuelto el problema de format de figuras dentro de admonitions aplicando la regla de anidamiento MyST (admonition con 4 backticks, figure con 3 backticks). Aplicado en los 5 admonitions con figura de cada idioma.*
 
 **7. Notas editorial / de formato**
 
@@ -97,6 +131,16 @@ Este archivo es el punto de referencia compartido para trabajar en el proyecto d
 - En el apartado 3 del ejemplo 1, las ecuaciones bajo “Equilibrio en x” y “Equilibrio en y” deben separarse más de los dos puntos para mejorar el diseño.
 - Añadir un pequeño espacio antes de los vectores unitarios en las ecuaciones para que no queden pegados al símbolo anterior.
 - Mantener consistencia tipográfica entre las versiones HTML y PDF en todo el capítulo 1.
+
+**Regla de anidamiento MyST — Figuras dentro de admonitions (descubierto 2026-06-17)**
+
+En MyST/Jupyter Book la regla es: **el bloque exterior debe tener siempre MÁS backticks que el bloque interior**. Para incluir una `{figure}` dentro de un `{admonition}` sin que el bloque se rompa a mitad:
+
+- Abrir el `{admonition}` con 4 backticks (`` ```` ``).
+- Escribir la `{figure}` interior con 3 backticks (`` ``` ``).
+- Cerrar el `{admonition}` con 4 backticks (`` ```` ``).
+
+Si se usa el orden inverso (admonition con 3, figure con 4), el parser interpreta el cierre de 4 backticks de la figure como cierre del admonition de 3, rompiendo el bloque visualmente antes de lo esperado. Este patrón es válido para cualquier combinación de directivas anidadas en el libro.
 
 **Resultados de las comprobaciones recientes**
 
